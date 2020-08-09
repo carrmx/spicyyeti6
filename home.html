@@ -1,0 +1,255 @@
+<html>
+<head>
+
+ <!--description for search engine ranking???-->
+<meta content="Property of LORD SPICYYETI of the SPICYYETI ESTATE">
+
+<!--this scales page for mobile viewports.-->
+    <meta content="width=device-width, initial-scale=.5" name="viewport" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="icon" type="image/ico" href="img/logo.ico"/>
+
+<style>
+	
+	.hot {
+		width: 80vw;
+		height: 40vw;
+		min-height: 400px;
+		margin: auto;
+		padding: 20px;
+		
+		background: #262626;
+		color: #0055ff;
+		
+		transform: rotate(2deg);
+		
+		font-size: 30px;
+		
+		text-align: center;
+	}
+	
+	.hot h1, .hot p {
+		color: #0055ff;
+	}
+	
+	.hot h1 {
+		font-size: 15vw;
+		margin: 8%;
+	}
+	
+	.hot p {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.hot small {
+		font-size: 15px;
+	}
+	
+	.hot a:hover p {
+		color: white;
+	}
+	
+	.news {
+		width: 40vw;
+		
+		padding: 100px;
+		margin: auto;
+		margin-top: 20px;
+		
+		background: white;
+		
+		transform: rotate(-2deg);	
+	}
+	
+	.article img {
+		max-width: 100%;
+		padding: 10px;
+	}
+	
+	.newslogo {
+		height: 220px;
+		width: 220px;
+		margin: 25px;
+	
+		background: red;
+		
+		transform: rotate(2deg);
+		float: left;
+	}
+	.newslogo img {
+		width: auto;
+		
+		margin-left: 20%;
+		margin-top: 20%;
+		
+		animation-name: thrust;
+		animation-duration: .3s; 
+		animation-iteration-count: infinite;
+	}
+	
+	.news .old {
+		background: #f4f4f4;
+		color: silver;
+		
+		padding: 10px;
+		margin-top: 50px;
+	}
+		
+	.news h1 {
+		margin: 0;
+	}
+	
+	@media only screen and (max-width: 900px) {
+	  .news {
+			padding: 50px;
+			width: 60vw;
+			padding-top: 20px;
+	  }
+	  .news .old {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		max-height: 900px;
+	  }
+	  .newslogo {
+		float: none;
+		margin: 50px auto;
+	  }
+	}
+
+</style>
+<script type="module">
+
+	/*IMPORTS*/
+	import * as Nav from './scripts/navbar.js';
+
+	/*MAIN*/
+	$(document).ready(function() {
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	/*LAZY LOADING*/
+	$(window).scroll(function () {
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	$(window).resize(function(){
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	/*NEWS*/
+	$.ajax({
+		url : 'newz.txt',
+		dataType : 'text',
+		success: function(data) {
+			// \n newline \s* any number of whitespace characters
+			var articles = data.split(/\n\s*\n/);
+			
+			for (var i = 0; i < articles.length; i++) {	
+				//break entry up to get title from first line
+				var lines = articles[i].split('\n');
+				var title = lines[0];
+				
+				//remove first line
+				lines.splice(0,1);
+				//join array back into string by newlines
+				var body = lines.join('\n');
+				
+				if (i == 0) {
+					//title
+					$('.news > .article h1').append(title);
+					//body
+					$('.news > .article p').append(body);
+				} else {
+					$('.old').append('<div class="article"><h1>' + title + '</h1><p>' + body + '</p></div>')
+				}
+			}
+		}
+	});
+	
+</script>
+<title>SPICYYETI</title>
+</head>
+<body>
+	<!--i keep this inline so it shows up at least partially while the images are loading ashgjkashgjk -->
+	<div id="header">
+	
+		<!--LOGO-->
+		<a href="home.html">
+			<div class="logo">
+				<p class="tip">HOME</p>
+				<div id="hornl"></div>
+				<div id="hornr"></div>
+			</div>
+		</a>
+		
+		<!--MENU-->
+		<div class="bar">
+			<div class="main_menu">
+				<a href="art.html"><div class="main item">
+					<p class="tip">ART</p>
+					<img src="img/navart.svg">
+				</div></a>
+				<a href="stories.html"><div class="main item">
+					<p class="tip">PROJECTS</p>
+					<img src="img/navstori.svg">
+				</div></a>
+				<a href="about.html"><div class="main item">
+					<p class="tip">ABOUT</p>
+					<img src="img/navabout.svg">
+				</div></a><a target="_" href="https://ko-fi.com/spicyyeti"><div class="item">
+					<p class="tip">PAY NOW</p>
+					<img src="img/navkofi.png">
+				</div></a><a target="_" href="https://www.patreon.com/spicyyeti"><div class="item">
+					<p class="tip">PAY LATER</p>
+					<img src="img/navpatreon.svg">
+				</div></a>
+			</div>
+		</div> 
+		
+	</div>
+
+	<div class="hot">
+		<h1>GODHEAD</h1>
+		<a href="GODHEAD/ACT_1/prologue/1.html"><p>FIRST</p></a>
+		<?php 
+			include 'scripts/functions.php';
+			echo '<a href="' . getLastGodhead() . '">';
+		?>
+			<p>LAST
+				<br><small><?php 
+					$filename = getLastGodhead();
+					if(file_exists($filename)) {	
+						date_default_timezone_set('America/Los_Angeles');
+						echo strtoupper(date ("F d Y H:i T", filemtime($filename)));
+					}
+				?></small>
+			</p>
+		</a>
+	</div>
+	<div class="news">	
+		
+		<div class="newslogo">
+			<img src="img/news.gif">
+		</div>
+	
+		<div class="article">
+			<h1></h1>
+			<p></p>
+		</div>
+			
+		<div class="old">
+		
+		</div>
+		
+	</div>
+</body>
+</html>

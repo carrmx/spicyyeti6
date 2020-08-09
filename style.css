@@ -1,0 +1,328 @@
+/*FONTS*/
+
+@font-face {
+	font-family: Radius;
+	src: url('fonts/radius.tff');
+}
+@font-face {
+	font-family: NK57;
+	src: url('fonts/nk57-monospace-se-lt.ttf');
+}
+
+/*ANIMATIONS*/
+
+@keyframes aFlip {
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+@keyframes thrust {
+	10% {
+		transform: scale(.9);
+	}
+	100% {
+		transform: scale(1.3);
+	}
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/*GENERAL*/
+html {
+	/*for flip animation*/
+	animation-duration: .5s;
+	animation-fill-mode: forwards;
+}
+
+body {
+	background: black;
+	overflow-x: hidden;
+	margin-bottom: 100px;
+	
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+p {
+	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
+	color: none;
+}
+
+a:hover, a:hover * {
+
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: red;
+}
+
+::-webkit-scrollbar-track-piece  {
+	background: gray;
+}
+
+*:focus {
+    outline: none;
+}
+
+@media only screen and (max-width: 980px) {
+	h1 {
+		font-size: 25px;
+	}
+	
+}
+
+/*LOADER*/
+.loader {
+	width: 101vw;
+	height: 101vh;
+	
+	position: fixed;
+	
+	z-index: 9999;
+	background: red;
+	
+	margin-top: -10px;
+	margin-left: -10px;
+	
+	animation-name: load;
+	animation-duration: 1.5s;
+	
+	visibility: visible;
+	animation-fill-mode: forwards;
+}
+
+@keyframes load {
+	0% {
+		background: red;
+	}
+	27%{
+		background: red;
+	}
+	
+	28%{
+		background: blue;
+	}
+	54%{
+		background: blue;
+	}
+	
+	55%{
+		background: yellow;
+	}
+	81% {
+		transform: translateY(0);
+	}
+	99%{
+		background: yellow;
+		transform: translateX(100vw);
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+
+/*TOOLTIPS*/
+.tip {
+	visibility: hidden;
+	background-color: #262626;
+	color: #898989;
+	text-align: center;
+	padding: 5px;
+	z-index: 1;
+	position: absolute;
+	bottom: 100%;
+}
+
+*:hover .tip {
+	visibility: visible;
+}
+
+/*HEADER*/
+
+#header {
+	position: relative;
+	height: 400px;
+	
+	transform: scale(1);
+    transform-origin: 16% 48%;
+}
+
+/*LOGO*/
+
+.logo {
+	height: 200px;
+	width: 200px;
+	
+	background: white;
+	
+	border-radius: 100%;
+	position: absolute;
+	
+	margin-top: 90px;
+	margin-left: 100px;
+	
+	transition: .2s;
+	
+	/*transform: translateX(-141px) translateY(0px) scale(1.5);*/
+	transform: scale(1);
+}
+
+.logo:hover {
+	/*transform: scale(1.1);*/
+	
+	/*transform: translateX(-0px) translateY(0px) scale(1.5);*/
+}
+
+#hornr, #hornl {
+	width: 0;
+	height: 0;
+	border-left: 46px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 146px solid white;
+	margin-bottom: -106%;
+	transition: .2s;
+}
+#hornr {
+	transform: rotate(29deg);
+	margin-left: 74%;
+}
+#hornl{
+  transform: rotate(-30deg);
+  margin-left: -13px;
+}
+
+@media only screen and (max-width: 900px) {
+  #hornr, #hornl {
+	/*border-left: 0px solid transparent;
+	border-right: 0px solid transparent;*/
+  }
+}
+
+/*BAR*/
+
+.bar {
+	height: 50px;
+	
+	position: absolute;
+	
+	/*starting position before transform*/
+	/*red dot in center of logo*/
+	margin-left: 60px;
+	margin-top: 150px;
+	
+	transform: rotate(-2deg);
+	transform-origin: 140px bottom;
+	
+	white-space: nowrap;
+}
+
+.bar .main_menu {
+	display: inline-block;
+}
+
+.main_menu {
+	margin-right: -6px;
+}
+
+/*offsetting some whitespace between elements i dont feel like tracking down*/
+.main_menu .item.main {
+	margin-left: -6px;
+}
+
+.bar .item {
+	height: 100px;
+	width: 100px;
+	/*border-radius: 100%;*/
+	
+	margin: 0;
+	margin-left: -1px;
+	vertical-align: middle;
+	
+	display: inline-block;
+	
+	background: white;
+	visibility: visible;
+}	
+
+.bar, .bar .item {
+	transition: .2s;
+}
+
+/*!try selecting last element instead of fixed at 3*/
+.bar a:nth-child(3) .main.item {
+	/*no whitespace between main menu and sub menu
+	margin-right: -5px;*/
+}
+
+.bar .item:not(.main) img {
+	filter: saturate(0);
+	opacity: .02;
+}
+
+.bar .item:hover, .bar .main.item {
+	border-radius: 100%;
+}
+
+.bar .item img {
+	margin-top: 24px;
+	transition: transform .2s, margin .2s;
+	
+	height: 50px;
+	vertical-align: middle;
+}
+
+.bar .item:hover img, .bar .main.item img {
+
+}
+
+.bar .item:hover img, .bar .main.item:hover img {
+	/*turn image white*/
+	/*filter: invert(50%) brightness(200%) saturate(0%);*/
+	filter: saturate(1);
+	opacity: 1;
+}
+
+/*NOT WORKING WHYYY*/
+.bar a:nth-child(3n + 1):hover .item, .bar a:nth-child(1) .main.item {
+	background: blue;
+}
+.bar a:nth-child(3n + 2):hover .item, .bar a:nth-child(2) .main.item {
+	background: red;
+}
+.bar a:nth-child(3n + 3):hover .item, .bar a:nth-child(3) .main.item {
+	background: yellow;
+}
+
+.bar .item.in_vp {
+	visibility: visible;
+}
+
+@media only screen and (max-width: 900px) {
+  .bar {
+	transform: translateY(-11px) rotate(90deg);
+  }
+  .bar .item img {
+	/*transform: rotate(-90deg);*/
+  }
+  /*ciruclar buttons for mobile
+  .bar .item {
+	height: 200%;
+	border-radius: 100%;
+  }*/
+}

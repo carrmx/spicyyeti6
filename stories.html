@@ -1,0 +1,873 @@
+<html>
+<head>
+
+ <!--description for search engine ranking???-->
+<meta content="Property of LORD SPICYYETI of the SPICYYETI ESTATE">
+
+<!--this scales page for mobile viewports.-->
+    <meta content="width=device-width, initial-scale=.5" name="viewport" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="icon" type="image/ico" href="img/logo.ico"/>
+
+<style>
+
+html {
+	scroll-behavior: smooth; /*index links dont JOLT the user to the element*/
+}
+
+p, b {
+	font-weight: 400;
+}
+
+#header {
+	height: 200px;
+	z-index: 2;
+}
+
+.logo {
+	
+}
+
+.bar {
+	/*animation: knowyourchicken;
+	animation-duration: .2s;
+	animation-delay: .5s;
+	animation-fill-mode: forwards;*/
+	
+	transform: translateY(-11px) rotate(90deg);
+}
+
+.bar .item img {
+	/*transform: rotate(-90deg);*/
+ }
+
+@keyframes knowyourchicken {
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+/***"SPICY" BUTTONS***/
+.trigger, .trigger:hover, .trigger:active {
+	color: black;
+	cursor: cell;
+}
+
+.butnico {
+	height: 250px;
+	width: 250px;
+	margin-top: -50px;
+	border-radius: 50%;
+	margin-left: -5%;
+	position: absolute;
+	right: 0;
+	transform: skewY(5deg);
+}
+
+.story:nth-child(even) .butnico {
+	left: 0px;
+}
+.story:nth-child(odd) .butnico {
+	margin-right: -5%;
+}
+.story:nth-child(even) .butn > h1, .story:nth-child(even) .butn > p {
+	float: right;
+}
+.story:nth-child(even) .butn > p {
+	margin-left: 250px;
+}
+.story:nth-child(odd) .butn > p {
+	margin-right: 250px;
+}
+
+.butn {
+	z-index: 5;
+	position: relative;
+
+	margin-right: 10%;
+	margin-left: 150px;
+	margin-bottom: 100px;
+	
+	height: 130px;
+	
+	transform: skewY(-5deg);
+}
+
+.butn h1, .butn p {
+	float:left;
+	margin: 2%;
+	margin-bottom: -2%;
+}
+
+/***DROPDOWNS***/
+.dropdown {
+	position: relative;
+	z-index: 1;
+	
+	width: calc(85 - 100px);
+	margin: auto;
+	padding-left: 300px;	
+	margin-bottom: 100px;
+	
+	text-align: left;
+
+	overflow: hidden;
+	transform: skewY(5deg);
+	
+	display: none;
+}
+
+.dropdown .block {
+	transform: skewY(0deg);
+	margin-top: 0px;
+	text-align: left;
+}
+.block {
+	overflow: visible;
+	margin-top: 200px;
+}
+
+/*a:hover h1, h1 a:hover, a:hover, a:not('.trigger'):hover { color: blue; }*/
+
+.dropdown h1 {
+    margin-right: 20px;
+    display: inline-block;
+    color: black;
+    border-radius: 100%;
+    min-width: 35px;
+	text-align: center;
+}
+.dropdown a:visited h1 {
+	color: #551A8B;/*purple*/
+}
+
+.dropdown .thumb img {
+	max-width: 50px;
+	margin: auto;
+}
+
+.dropdown .thumb {
+	display: inline-block; 
+	margin: 20px;
+	text-align: center;
+}
+.dropdown .thumb h1 {
+	margin: 0;
+}
+
+.dropdown .firstlast {
+	margin: auto;
+    margin-top: 50px;
+	margin-bottom: 25px;
+	width: 100%;
+	text-align: center;
+}
+
+.dropdown .firstlast p {
+	display: inline-block;
+	margin: 0 2px;
+}
+
+/*********************DROPDOWN CUSTOMIZATION*******************/
+
+/***************GODHEAD ACT 2*************/
+#ACT_2, #ACT_2 + .dropdown a:not(:visited) h1 {
+	color: #1b94fe;
+}
+/***************GODHEAD ACT 1*************/
+.GODHEAD p {
+	margin-top: 4%;
+}
+#ACT_1, .GODHEAD + .dropdown p {
+	color: #fe4e1b;
+}
+.GODHEAD + .dropdown, .GODHEAD + .dropdown h1 {
+	background: #2d2d2d;
+	color: #fe4e1b;
+}
+.GODHEAD + .dropdown {
+	padding-bottom: 50px;
+}
+.GODHEAD + .dropdown h2 {
+	display: inline-block;
+	margin: 5px;
+}
+.GODHEAD + .dropdown img {
+
+	margin-top: 10px;
+	display: block;
+}
+.GODHEAD + .dropdown a:active img {
+	border: none;
+}
+.GODHEAD + .dropdown a h2 {
+	width: 130px;
+	height: 100px; 
+}
+.GODHEAD + .dropdown a h2 img {
+	height: 50px; 
+	width: auto;
+	display: block;
+	margin: auto;
+}
+.GODHEAD + .dropdown a:visited h1 {
+	color: #4a4a4a;
+}
+.GODHEAD + .dropdown .firstlast p{
+	float: none;
+	background: none;
+	color: white;
+}
+.GODHEAD + .dropdown .firstlast a:visited p{
+	color: white;
+}
+.GODHEAD + .dropdown .firstlast a:nth-child(1) p:hover{
+	color: #fe4e1b;
+}
+.GODHEAD + .dropdown .firstlast a:nth-child(2) p:hover{
+	color: #1b94fe;
+}
+.GODHEAD + .dropdown .firstlast a:nth-child(3) p:hover{
+	color: #ff00e6;
+}
+a:hover .GODHEAD *{
+	/*color: #e711ff;*/
+}
+/***************FANWORK***************/
+#fanwork + .dropdown {
+	padding-right: 25px;
+}
+#fanwork + .dropdown a {
+	text-decoration: underline;
+}
+
+#topkat {
+	color: blue;
+}
+#topkat:hover {
+	cursor: pointer;
+}
+#topkat:visited {
+	color: purple;
+}
+/***************BURGLAR*************/
+#comicburglar + .dropdown {
+	background-image: url('img/bburglar.png');
+}
+#comicburglar + .dropdown a:hover h1{
+	/*color: #0221ef;*/
+}
+/***************CARMIX*************/
+#comiccarmix + .dropdown {
+	background-image: url('img/bcarmix1.png');
+}
+#comiccarmix + .dropdown h1 {
+	/*background: orange;*/
+}
+#comiccarmix + .dropdown h1:hover,  
+#comiccarmix + .dropdown a:hover {
+	/*color: red;*/
+}
+/***************BELLY*************/
+#comicbelly + .dropdown {
+	background-image: url('img/bbelly.png');
+}
+#comicbelly + .dropdown h1:hover {
+	/*color: gray;*/
+}
+/***************STRANGERS*************/
+#strangers + .dropdown{
+	background-image: url('img/bstrangers1.png');
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+#strangers + .dropdown img {
+	max-width: 65px;
+	padding: 10px;
+}
+/***************YOUTH BRIGADE*************/
+#comicbrigade + .dropdown {
+	background-image: url('img/bbrigade.png');
+}
+#comicbrigade + .dropdown h1 {
+	/*background: brown;*/
+}
+#comicbrigade + .dropdown h1:hover,
+#comicbrigade + .dropdown a:hover{
+	/*color: #d129c3;*/
+}
+/***************SUICIDAL MANIACS*************/
+#comicmaniacs + .dropdown {
+	background-image: url('img/bmaniacs.png');
+}
+#comicmaniacs + .dropdown h1 {
+	/*background: rgb(188, 66, 66);*/
+}
+#comicmaniacs + .dropdown h1:hover,
+#comicmaniacs + .dropdown a:hover {
+	/*color: green;*/
+}
+
+
+</style>
+
+<script type="module">
+
+	/*IMPORTS*/
+	import * as Nav from './scripts/navbar.js';
+	import * as Dropdown from './scripts/dropdown.js';
+	
+	/*VARS*/
+	var GENERATE = [
+		new Story('comicmaniacs', 17, true),
+		new Story('comicbrigade', 2, true),
+		new Story('comicbelly', 43),
+		new Story('comiccarmix', 2, true),
+		new Story('comicburglar', 10)
+	];
+	
+	/*VARS*/
+	var hash = getHashParams();
+
+	/*MAIN*/
+	$(window).on("load", function() {
+		Nav.birth("vertically");
+		//Nav.flashlight();
+		Nav.populate();
+		
+		for(var i = 0; i < GENERATE.length; i++) {
+			var $dropdown = $('#' + GENERATE[i].name).find('+ .dropdown .block');
+			
+			if(GENERATE[i].pages > 0) {
+				//finished comic
+				for(var j = 1; j <= GENERATE[i].pages; j++) {				
+					$dropdown.append('<a href="' + GENERATE[i].name + j + '"><h1>' + j + '</h1></a>');
+				}
+			} else {
+				//ongoing comic
+				//!I HAVENT WRITTEN THIS YET!
+			}
+		}
+		
+		/*DROPDOWN*/
+		Dropdown.initDropdown('.trigger');
+		
+		/*AUTO OPEN LINKED INDEX*/
+		if(hash) {
+			var $trigger = $('#' + hash);
+			var $dropdown = $trigger.find('+ .dropdown');
+			Dropdown.expandDong($trigger, $dropdown);
+		}
+		
+		//topkat
+		$('#topkat').click(function() {
+			var PASSWORD = prompt("RIDDLE ME THIS: WHAT IS 8123 PAGES AND A COLOSSAL WASTE OF FUCKING TIME?");
+			var PASSWORD = PASSWORD.toLowerCase();
+			if(/homestuck/.test(PASSWORD)) {
+				window.location.href = "https://archiveofourown.org/works/21498205/chapters/51237796";
+			}
+		});
+	});
+	
+	/*LAZY LOADING*/
+	$(window).scroll(function () {
+		Nav.birth("vertically");
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	$(window).resize(function(){
+		Nav.birth("vertically");
+		Nav.flashlight();
+		Nav.populate();
+		
+		//resize dropdowns
+		$('.trigger.open + .dropdown').each(function() {
+			$(this).css('height', 'auto');
+			$(this).attr('data-height', $(this).height());
+		});
+	});
+	
+	/*FUNCTIONS*/
+	function Story(name="", pages=0, arcs=false) {
+		if(name)
+			this.name = name;
+		if(pages > 0)
+			this.pages = pages;
+		if(arcs)
+			this.arcs = arcs;
+	}
+
+	function getHashParams() {
+		var hashParams = {};
+		var e,
+			a = /\+/g,  // Regex for replacing addition symbol with a space
+			r = /([^&;=]+)=?([^&;]*)/g,
+			d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
+			q = window.location.hash.substring(1);
+
+		/*while (e = r.exec(q))
+		   hashParams[d(e[1])] = d(e[2]);*/
+
+		return q;
+	}
+
+</script>
+<title>SPICYYETI</title>
+</head>
+<body>
+	<?php 
+		include './scripts/functions.php';
+		
+		function optimize($filename) {
+			if(function_exists('imagecreatetruecolor') &&
+			function_exists('imagecreatefrompng') &&
+			function_exists('imagecopyresampled')) {
+				// Set a maximum height and width
+				$width = 200;
+				$height = 50;
+
+				// Get new dimensions
+				list($width_orig, $height_orig) = getimagesize($filename);
+
+				$ratio_orig = $width_orig/$height_orig;
+
+				if ($width/$height > $ratio_orig) {
+				   $width = $height*$ratio_orig;
+				} else {
+				   $height = $width/$ratio_orig;
+				}
+
+				// Resample
+				$image_p = imagecreatetruecolor($width, $height);
+				$image = imagecreatefrompng($filename);
+				imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+				// Output
+				return $image_p;
+			}
+			return false;
+		}
+		
+		function loadGodheadAct($actn=1) {
+			$path = "GODHEAD/";
+			$act = "ACT_" . $actn;
+			$previews = "img/ghprevs/" . $act . "/";
+			$updates = loadDirectory($path . $act, '', 'alphanumerical');
+			
+			foreach ($updates as $u) {
+				if ($u > 0) {
+				
+					$link = $path . $act . "/" . $u . "/1.html";
+					//!if theres no 1.png pick any image from the folder
+					$prev_path = $path . $act . "/" . $u . "/img/1.png";
+					
+					if(file_exists($link)) {
+						echo "<a title='" . $actn . "_" . "$u" . "' href='" . $link . "'>";
+					
+						echo "<div class='thumb'>";
+					
+						echo "<h1 style=''>" . $u . "</h1>";
+						
+						if(file_exists($prev_path)) {
+						
+							//OPTIMIZE
+							$prev = 'img/gh_a' . $actn . '_prevs/' . $u . '.png';
+							if(!file_exists($prev)) {
+								//create previews if they dont exist already
+								$image_p = optimize($prev_path);
+								if($image_p) {
+									imagepng($image_p, $prev);
+									imagedestroy($image_p);
+								}
+							}
+							
+							echo "<img style='' src='" . $prev . "'>";
+						}
+						
+						echo "</div>";
+						
+						echo "</a>";
+					}
+				}
+			}
+		}
+		
+	?>
+
+	<!--i keep this inline so it shows up at least partially while the images are loading ashgjkashgjk -->
+	<div id="header">
+	
+		<!--LOGO-->
+		<a href="home.html">
+			<div class="logo">
+				<p class="tip">HOME</p>
+				<div id="hornl"></div>
+				<div id="hornr"></div>
+			</div>
+		</a>
+		
+		<!--MENU-->
+		<div class="bar">
+			<div class="main_menu">
+				<a href="art.html"><div class="main item">
+					<p class="tip">ART</p>
+					<img src="img/navart.svg">
+				</div></a>
+				<a href="stories.html"><div class="main item">
+					<p class="tip">PROJECTS</p>
+					<img src="img/navstori.svg">
+				</div></a>
+				<a href="about.html"><div class="main item">
+					<p class="tip">ABOUT</p>
+					<img src="img/navabout.svg">
+				</div></a><a target="_" href="https://ko-fi.com/spicyyeti"><div class="item">
+					<p class="tip">PAY NOW</p>
+					<img src="img/navkofi.png">
+				</div></a><a target="_" href="https://www.patreon.com/spicyyeti"><div class="item">
+					<p class="tip">PAY LATER</p>
+					<img src="img/navpatreon.svg">
+				</div></a>
+			</div>
+		</div> 
+		
+	</div>
+	
+	<!--
+	!!!NOTE ON ID NAMING CONVENTION:
+	button ids should generally be the directory they lead to.
+	this makes the dropdowns work.
+	-->
+	<div class="block" id="portals">	
+				
+		<!--GODHEAD ACT 2-->
+		<div class="story">
+		
+			<a id="ACT_2" class="GODHEAD trigger" href="#ACT_2">
+				<div class="butn" style="background-image:url('img/bgodhead.png');">
+					<div class="butnico" style="background-image:url('img/pgodhead2.png')"></div>
+					<h1>GODHEAD ACT 2</h1>
+					<p><b>Every happy's a little sad. (2020)</b></p>
+				</div>	
+			</a>
+			<div class="dropdown">
+				<div class="firstlast">
+					<a href="GODHEAD/ACT_1/prologue/1.html"><p>First</p></a>
+					<a href="GODHEAD/credits.html"><p class="credits">Credits</p></a>
+					<a href="<?php echo getLastGodhead();?>"><p>Last</p></a>
+				</div>
+					<?php 
+						loadGodheadAct(2);
+					?>
+			</div>
+			
+		</div>
+		
+		<!--GODHEAD ACT 1-->
+		<div class="story">
+		
+			<a id="ACT_1" class="GODHEAD trigger" href="#ACT_1">
+				<div class="butn" style="background-image:url('img/bgodhead.png');">
+					<div class="butnico" style="background-image:url('img/pgodhead.png')"></div>
+					<h1>GODHEAD ACT 1</h1>
+					<p><b>It's lonely at the top. (2019)</b></p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="firstlast">
+					<a href="GODHEAD/ACT_1/prologue/1.html"><p>First</p></a>
+					<a href="GODHEAD/credits.html"><p class="credits">Credits</p></a>
+					<a href="GODHEAD/ACT_1/69/1.html"><p>Last</p></a>
+				</div>
+					<a href="GODHEAD/ACT_1/prologue/1.html">
+						<div class="thumb">
+							<h1>PROLOGUE</h1>
+							<img src="GODHEAD/ACT_1/prologue/img/1.png">
+						</div>
+					</a>
+					<?php 
+						loadGodheadAct(1);
+					?>
+			</div>
+			
+		</div>
+		
+		<!--FANWORK-->
+		<div class="story">
+		
+			<a id="fanwork" class="trigger" href="#fanwork">
+				<div class="butn" style="background-image:url('img/bfanwork.png');border:1px black solid">
+						<div class="butnico" style="background-image:url('img/pfanwork.png');border:1px black solid;"></div>
+						<h1>FANWORK</h1>
+						<p>(2019-2020)</p>
+				</div>
+			</a>
+			<div class="dropdown" style="margin: 100px auto;background-image: url('img/bfanwork.png');">
+				<div style="text-align: right;" class="block">
+				<div id="homestuck">
+					<h1 style="text-align: left">HOMOSUCK</h1>
+					
+					<a href="stupid/gallery.html"><h2>Low Quality Control Gallery (19+)</h2></a>
+					
+					<a href="https://mspfa.com/?s=31907&p=1"><h2>YOURS MINE and OURS: A Davekat Halloween Special</h2></a>
+									
+					<h2 style="margin-bottom: 0;">JADE ROUTE</h2>
+					<h3 style="margin: 0;">
+					<a href="stupid/jaderoute.html?episode=1_start&page=jr1.png">1_start</a>
+					<a href="stupid/jaderoute.html?episode=2_roxy&page=roxay.png">2_roxy</a>
+					<a href="stupid/jaderoute.html?episode=3_commercial&page=dirk0.png">3_commercial</a>
+					<a href="stupid/jaderoute.html?episode=4_corpse&page=jade1.png">4_corpse</a>
+					<a href="stupid/jaderoute.html?episode=5_complacency&page=complacency1.png">5_complacency</a>
+					<a href="stupid/jaderoute.html?episode=6_callie&page=callijade1.png">6_callie</a>
+					<a href="stupid/jaderoute.html?episode=7_flashback&page=flashback1.png">7_flashback</a>
+					<a href="stupid/jaderoute.html?episode=8_jade&page=callijade2 1.png">8_jade</a>
+					<a href="stupid/jaderoute.html?episode=9_fight&page=FIGHT1.png">9_fight</a>
+					<a href="stupid/jaderoute.html?episode=10_meltdown&page=meltdown1.png">10_meltdown</a>
+					<a href="stupid/jaderoute.html?episode=11_love&page=love1.png">11_love</a>
+					<a href="stupid/jaderoute.html?episode=12_bossbattle&page=bossbattle1.png">12_bossbattle</a>
+					<br><a href="https://soundcloud.com/oreofresh/sets/jade-route-live-read">soundtrack</a>
+					<a href="https://twitter.com/muthahomestucka/status/1148504431127695360">original thread</a>
+					</h3>
+					
+					<a id="topkat"><h2>TOPKAT (19+)</h2></a>
+					
+					<a href="stupid/oh.html"><h2>the <span style="background: black;">poo*p</span> comic.
+					we dont speak of the <span style="background: black;">poo*p</span> comic.</h2></a>
+					
+					<!--IF YOU'RE LOOKING FOR AHEGAO DAVE,
+					HE'S IN THE GALLERY
+					<a href="stupid/iCantBelieveImStillDoingThisShit.html">
+					<h2>????????????? (19+)</h2>
+					</a>-->
+					
+					<h2 style="margin-bottom: 0;">Battle of the Bottoms (19+)</h2>
+					<h3 style="margin: 0;"><a href="stupid/battleofthebottoms1.html">1</a>
+					<a href="stupid/battleofthebottoms2.html">2</a>
+					<a href="stupid/battleofthebottoms3.html">3</a>
+					<a href="stupid/battleofthebottoms4.html">4</a>
+					<a href="stupid/battleofthebottoms5.html">5</a>
+					<br><a href="https://soundcloud.com/oreofresh/sets/battle-of-the-bottoms-live">soundtrack</a>
+					</h3>
+					
+					
+					<a href="stupid/meat43.html"><h2>Meat 43</h2></a>
+					
+					<a href="stupid/meat38.html"><h2>Meat 38</h2></a>
+				</div>
+				
+			</div>
+			</div>
+		
+		</div>
+	
+		<!--DAMONIA FAMILY-->
+		<div class="story">
+		
+			<a href="damoni/a.html">
+				<div id="damoni" class="butn" style="background-image:url('img/bdamonia.png');">
+					<div class="butnico" style="background-image:url('img/pdamonia.png')"></div>
+					<h1>DAMONIA FAMILY</h1>
+					<p>a family of demons and angels raise unholy heaven (2019)</p>
+				</div>
+			</a>
+		
+		</div>
+				
+		<!--BURGLAR STORY-->
+		<div class="story">
+			
+			<a id="comicburglar" class="trigger" href="#comicburglar">
+				<div class="butn" style="background-image:url('img/bburglar.png');">
+					<div class="butnico" style="background-image:url('img/pburglar.png');"></div>
+					<h1>BURGLAR & LITTLE MAN</h1> 
+					<p>boigler finds a new son. co written by lily (2018)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+				</div>
+			</div>
+			
+		</div>
+		
+		<!--CARMIX 1 + 2-->
+		<div class="story">
+		
+			<a id="comiccarmix" class="trigger" href="#comiccarmix">
+				<div class="butn" style="background-image:url('img/bcarmix1.png');">
+					<div class="butnico" style="background-image:url('img/pcarmix1.png');"></div>
+					<h1>CARMIX</h1> 
+					<p>a laugh and a half (2016-2017)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+				</div>
+			</div>
+		
+		</div>
+		
+		<!--BELLY-->
+		<div class="story">
+		
+			<a id="comicbelly" class="trigger" href="#comicbelly">
+				<div class="butn" style="background-image:url('img/bbelly.png');">
+					<div class="butnico" style="background-image:url('img/pbelly.png');"></div>
+					<h1>THE BELLY</h1> 
+					<p>a telling of secrets untold (2017)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+				</div>
+			</div>
+			
+		</div>
+		
+		<!--STRANGERS THE GAME-->
+		<div class="story">
+	
+			<a href="game_strangers/strangersgame.html">
+				<div id="strangers_game" class="butn" style="background-image:url('img/bcrumple.jpg');">
+					<div class="butnico" style="background-image:url('img/pstrangersgame.png');"></div>
+					<h1><img src="img/titlestrangersgame.png"></h1> 
+					<p></p>
+				</div>
+			</a>
+			
+		</div>
+		
+		<!--STRANGERS-->
+		<div class="story">
+		
+			<a id="strangers" class="trigger" href="#strangers">
+				<div class="butn" style="background-image:url('img/bstrangers1.png');">
+					<div class="butnico" style="background-image:url('img/pstrangers.png');"></div>
+					<h1><img src="img/titlestrangers.png"></h1> 
+					<p> busstop romance (2015-16)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+					<?php
+						$titles = [
+							"November 29, 2015", "What Could Be Stranger", "December 1, 2015", "Logic",
+							"Reclining", "DeodOrant", "Wednesday", "Heart Attack", "SuperCold", "Not Quite",
+							"December 11, 2015", "Confession", "January 2, 2016", "January 2, 2016", "Birthday?",
+							"BIG RAIN", "Valentine", "New Boots", "Voyage", "February 18, 2016", "February 19, 2016",
+							"Dress", "Sister", "Hunger", "Cat", "A Day In The Life Of (Part 1)",
+							"A Day In The Life Of (Part 2)", "A Day In The Life Of (Part 3)", "A Day In The Life Of (Part 4)",
+							"March 7, 2016", "Peacocking", "Cat 2", "Spring Cleaning", "March 14, 2016", "Switcharoo",
+							"Sweaty", "Same Cat Same Love", "Personal Space", "Cat Touch", "Fancy Dress", "Hot Dog",
+							"Moving Out", "???", "March 30, 2016", "Age", "A Stick", "Memory", "How-To", "April 7, 2016",
+							"April 11, 2016", "How To Get The Girl Chapter 1", "HTGTG Chapter 2", "HTGTGFJ;LHK Chapter 3",
+							"htgtg chapter wtf", "gtg part fuck you", "hghghg p6", "Hat Heaven", "April", "April 25, 2016",
+							"Watch Fat Idiot Freak Out Over Subway Lollipop", "Call For Help", "Sisterhood",
+							"Flirt", "Tease", "May 4, 2016", "Neverending", "Magic", "Ants", "Cellphone",
+							"May 12, 2016", "Toughie", "May 17, 2016", "Submit", "Fortune", "May 23, 2016", "May 24, 2016",
+							"Computer Games", "Ripoff", "Eyesight", "This Has Nothing To Do With Mac Demarco",
+							"Class Clown", "Field Trip", "Social Anxiety", "Baby Day", "Lapse of Judgement", "Road Rage",
+							"Sunburn", "Job Interview", "Sunflower", "Massacre", "Luxury", "Perfume", "Lighting",
+							"Tricky Ridicky", "Shyguy Dies", "Mourning", "July 7, 2016", "Exercise", "Long Nap",
+							"Modern Art", "Life Hack", "Hospitalized", "Coke Addict", "Jetlagged", "idk what date this was",
+							"Ocean Adventure", "Peer Pressure", "Dirty Dishes", "Loser", "Winner", "Roommate", "Catfood",
+							"Seatbelts", "Mugged", "Hot Day", "Crossover Episode", "August 11, 2016", "Evironmentalist",
+							"Stroll", "Crash At My Place", "Milk", "What?", "Revenge", "Stalker", "Dentist", "Foul Language",
+							"Punctured", "Excessive Cruelty", "Sharing", "Blame Game", "Sacrifice", "September 7, 2016",
+							"Hi-Chew", "Bump", "Horse Stop", "Windy", "Flower", "Sexy", "Major League", "Inconsiderate",
+							"Acting Talent", "Frog Legged", "Fusion", "Onions", "That Thing",
+							"Blue", "Beanie Mania", "Adam's", "Bus Pun",
+							"Favorite", "Pottery Exchange", "Ghost", "Bowling",
+							"Bowling Incident", "Pizza Guy", "It's Pink", "Tamed",
+							"Cat Prank", "Hygiene", "Identity Crisis", "Incredible Shrinking Day",
+							"Halloween Special", "Halloween Special Pt 2", "Trick or Trick", "November 3, 2016",
+							"You Really Brought The Comic Back For This?"
+						];
+					
+						$stragers = loadDirectory('strangers', '', 'alphanumerical');
+						foreach($stragers as $s) {
+							$n = intval($s);
+							if($n > 0) {
+								$url = 'strangers' . $n;
+								$thumb = 'img/strangers_buttons/strangersp' . $n . '.png';
+								
+								echo '<a
+								href="' . $url . '"><img 
+								alt="' . $n . '" 
+								src="' . $thumb . '" 
+								title="' . $titles[$n-1] . '"></a>';
+							}
+						}
+					?>
+				</div>
+			</div>
+		
+		</div>
+		
+		<!--NOTHING'S WORSE THAN EVERYTHING-->
+		<div class="story">
+		
+			<a href="nwe.html">
+				<div id="nwe" class="butn" style="background-image:url('img/bnwe.png')">
+					<div class="butnico" style="background-image:url('img/pnwe.png')"></div>
+					<h1>NWE</h1>
+					<p>a zine showcasing art from the kids 'round the block (2015-16)</p>
+				</div>
+			</a>
+		
+		</div>
+		
+		<!--BRIGADE MINIS-->
+		<div class="story">
+		
+			<a id="comicbrigade" class="trigger" href="#comicbrigade">
+				<div class="butn" style="background-image:url('img/bbrigade.png');">
+					<div class="butnico" style="background-image:url('img/pbrigade.png');"></div>
+					<h1>BRIGADE MINIS</h1> 
+					<p>smelly kids cause a stink (2015)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+				</div>
+			</div>
+		
+		</div>
+		
+		<!--SUICIDAL MANIACS-->
+		<div class="story">
+		
+			<a id="comicmaniacs" class="trigger" href="#comicmaniacs">
+				<div class="butn" style="background-image:url('img/bmaniacs.png');">
+					<div class="butnico" style="background-image:url('img/pmaniacs.png');"></div>
+					<h1>SUICIDAL MANIACS</h1> 
+					<p>four troublemakers make trouble (2014)</p>
+				</div>
+			</a>
+			<div class="dropdown">
+				<div class="block">
+				</div>
+			</div>
+		
+		</div>
+		
+		<!--JIGGLEA-->
+		<div class="story">
+		
+			<a target="_" href='https://jigglea.bandcamp.com/'>
+				<div id="jigglea" class="butn" style="background-image:url('img/bjigglea.png');">
+					<div class="butnico" style="background-image:url('img/pjigglea.png')"></div>
+					<h1>JIGGLEA</h1>
+					<p>magical musical collab betwixt alisa, me, and everybody inbetween. (2012-???)</p>
+				</div>
+			</a>	
+		</div>
+		
+	</div>
+	
+</body>
+</html>

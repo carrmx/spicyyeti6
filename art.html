@@ -1,0 +1,219 @@
+<html>
+<head>
+
+ <!--description for search engine ranking???-->
+<meta content="Property of LORD SPICYYETI of the SPICYYETI ESTATE">
+
+<!--this scales page for mobile viewports.-->
+    <meta content="width=device-width, initial-scale=.5" name="viewport" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="icon" type="image/ico" href="img/logo.ico"/>
+
+<style>
+	body {
+		overflow: hidden;
+		color: white;
+	}
+	
+	#header {
+		user-select: none;
+		height: 0;
+		z-index: 999;
+	}
+	.bar {
+		transform: rotate(2deg);
+	}
+	
+	.art {
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		max-width: 200px;
+		
+		z-index: 1;
+		
+		user-select: none;
+		
+		transition: .5s;
+		
+		opacity: .2;
+		transform: scale(.99);
+		
+	}
+	.art:hover {
+		transform: scale(1.0);
+		transition: 0s;
+		opacity: 1;
+	}
+	.art:active {
+		transition: 0s;
+	}
+	.biggened {
+		max-width: fit-content;
+	}
+
+	@media only screen and (max-width: 900px) {
+		/*NO SCROLL*/
+		html, body {
+		  overflow-x: hidden;
+		}
+		body {
+		  position: relative;
+		}
+	}
+
+</style>
+
+<script type="module">
+
+	/*GLOBALS*/
+	var MOUSEX;
+	var MOUSEY;
+	var Z = 999;
+	var TARGET = {$e:false, offset_x:0, offset_y: 0};
+
+	/*IMPORTS*/
+	import * as Nav from './scripts/navbar.js';
+	import { Nbetween } from './scripts/util.js';
+
+	/*MAIN*/
+	$(document).ready(function() {
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	/*LAZY LOADING*/
+	$(window).scroll(function () {
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	$(window).resize(function(){
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	});
+	
+	/*ART POSITIONING*/
+	$('.art').each(function() {
+		var x = Nbetween(window.innerWidth - 50, -80);
+		var y = Nbetween(window.innerHeight - 50, -80);
+		
+		$(this).css('left', x);
+		$(this).css('top', y);
+	});
+	
+	/*ART DRAGGING*/
+	$(document).bind('touchmove', function(event) {
+		MOUSEX = event.originalEvent.touches[0].clientX;
+		MOUSEY = event.originalEvent.touches[0].clientY;
+		
+		if(TARGET.$e && TARGET.$e.hasClass('drag')) {
+			TARGET.$e.css('left', MOUSEX - TARGET.offset_x);
+			TARGET.$e.css('top', MOUSEY - TARGET.offset_y);
+		}
+	});
+	$(window).on("mousemove", function(e) {
+		MOUSEX = e.clientX;
+		MOUSEY = e.clientY;
+		
+		if(TARGET.$e && TARGET.$e.hasClass('drag')) {
+			TARGET.$e.css('left', MOUSEX - TARGET.offset_x);
+			TARGET.$e.css('top', MOUSEY - TARGET.offset_y);
+		}
+	});
+	$('.art').on("mousedown", function(e) {
+		$(this).addClass('drag');
+		$(this).css('z-index', Z++);
+		
+		var offset = $(this).offset();
+		TARGET.offset_x = e.pageX - offset.left;
+		TARGET.offset_y = e.pageY - offset.top;
+		TARGET.$e = $(this);
+	});
+	$('.art').bind('touchstart', function(e) {
+		$(this).addClass('drag');
+		$(this).css('z-index', Z++);
+		
+		TARGET.$e = $(this);
+	});
+	
+	$('.art').on("mouseup", function() {
+		$(this).removeClass('drag');
+	});
+	$('.art').bind('touchend', function(e){
+		$(this).removeClass('drag');
+	});
+	/*ENBIGGEN*/
+	$('.art').on("dblclick", function() {
+		$(this).toggleClass("biggened");
+	});
+	
+</script>
+<title>SPICYYETI</title>
+</head>
+<body>
+
+	<!--i keep this inline so it shows up at least partially while the images are loading ashgjkashgjk -->
+	<div id="header">
+		<!--LOGO-->
+		<a href="home.html">
+			<div class="logo">
+				<p class="tip">HOME</p>
+				<div id="hornl"></div>
+				<div id="hornr"></div>
+			</div>
+		</a>
+		
+		<!--MENU-->
+		<div class="bar">
+			<div class="main_menu">
+				<a href="art.html"><div class="main item">
+					<p class="tip">ART</p>
+					<img src="img/navart.svg">
+				</div></a>
+				<a href="stories.html"><div class="main item">
+					<p class="tip">PROJECTS</p>
+					<img src="img/navstori.svg">
+				</div></a>
+				<a href="about.html"><div class="main item">
+					<p class="tip">ABOUT</p>
+					<img src="img/navabout.svg">
+				</div></a><a target="_" href="https://ko-fi.com/spicyyeti"><div class="item">
+					<p class="tip">PAY NOW</p>
+					<img src="img/navkofi.png">
+				</div></a><a target="_" href="https://www.patreon.com/spicyyeti"><div class="item">
+					<p class="tip">PAY LATER</p>
+					<img src="img/navpatreon.svg">
+				</div></a>
+			</div>
+		</div> 
+		
+	</div>
+	
+	<div class="gallery">
+		<?php
+			include 'scripts/functions.php';
+			
+			$years = loadDirectory('img/art', '', 'alphanumerical');
+
+			foreach($years as $year) {
+				$collection = loadDirectory('img/art/' . $year);
+				
+				foreach($collection as $piece) {
+					echo '<img src="img/art/' . $year . '/' . $piece . '" title="' . $piece . " (" . $year . ')" draggable="false" ondragstart="return false;" class="art">';
+				}
+			}
+
+		?>
+	</div>
+	
+</body>
+</html>

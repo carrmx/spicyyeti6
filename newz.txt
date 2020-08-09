@@ -1,0 +1,97 @@
+8.2.20 SPICYYETI6
+check this shit out
+
+1.11.20 SWF > HTML5 PROJECT
+<a href="https://www.spicyyeti.com/tutz/swf2html.html">THA GOAL: TO TRANSLATE WACK ASS OUT OF DATE FLASH ANIMATIONS TO HTML SO THAT THEY CAN PLAY ON MODERN DEVICES AND NOT BE DESTROYED FOREVER</a>
+<br>
+<img src="tutz/img/computer_108.gif">
+
+12.4.19 MAKE YOUR OWN WEBSITE TODAAAAAAAY
+YOU SHOULD JOIN MY <a href="https://discord.gg/ws9MtZP">WEB DESIGN DISCORD</a> AND HERE'S WHY:
+<br><br>last night i was searching for the 1999 msi recording of jimmy urine peeing in a bottle and steve righ spitting it onto the audience. i searched and searched and ultimately to my UTTER DISMAY i found youtube had F********************************** DELETED IT. 
+<img src="img/FUCKYOUTUBE.PNG">
+NO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! that footage is just like Gone now. i became so paranoid after this i  frantically started <a href="https://www.y2mate.com/en2">downloading</a> any video or file that is unlikely to survive the corporate internet. you seriously take for granted how some small thing you found amusing could be lost forever from something like yahoo buying tumblr happening. we lose more and more stuff every day which i think solidifies the importance of this classic internet idea: <b>archiving is equally as important as creating.</b> i think people should have their own sites partially to keep that early internet individualism alive, but just as much to archive past artifacts. thats all a website is for, anyways. hosting files. i'm going to start using my site to archive pieces of the internet i dont want to go away. you should too. and if you dont have a site...<a href="https://discord.gg/ws9MtZP">JOIN THE SPICYYETI CODING ALLIANCE DISCORD AND LEARN HOW WE HAVE TUTORIALS AND WE CAN HELP YOU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</a>
+<br><br>PUNK'S NOT QUITE DEAD...YET.
+
+6.24.19 GODHEAD
+...Has Begun.
+
+4.6.19 NEOOOOOCCICIIITTTIIESSSS (and this other thing im doing)
+im so excited about neocities. i created a <a href="https://spicyyeti.neocities.org/">spicyyeti proxy</a>--
+im sure if i had known about neocities in 2015 (if it even existed at that time???)
+id HECKA have hosted SY on there. alas. i hope i dont get in trouble for having this
+halfassed proxy up on my account (of course its not entirely halfassed; if you press a key or use your scroll wheel you can do the flippy thing). 
+i desperately want to integrate into neocities society with the other website lovers TT_TT 
+<br>i have installed a NEOCITIES LINK in the randomized nav bar up top. 
+of course its kinda hard to expect math.random() to hold its end of the promo bargain/any bargain really
+so im gonna break the rules and <a href="https://neocities.org/browse?sort_by=random&tag=">LINK NEOCITIES RIGHT HERE RIGHT NOW LIKE A NORMAL PERSON!!!!!!!!</a>
+that was so forbidden. dont count on me doing that again. 
+<br><br>by the way, i am currently doing a project that will be taking place in a Physical Space. more specifically, at Ori Gallery.
+please click the gargantuan preview above for all you need to know on that + a fun little thing you can do 
+
+6.15.18 UM I HOPE YOU ALL HAVE CACHING ENABLED
+it'll help the site run faster for you
+
+6.12.18 THE INVISIBLE UPDATE
+the MOSTLY invisible update. over the weekend i wrote a php script to act as a generic...loader? for my comics. previously each comic's script loaded directories and modified css in a nearly identical way. this isn't an update you can see but it makes modifying this website a lot easier--and THEREFORE, it's something that should clear the way for me to add things that you CAN SEE. :O!
+</br>after that i updated the story archive page to pseudo-auto-load buttons, reading directories in a similar way to the generic comic loader does. there actually is a visible change on this page, an astounding display of my WhyHaveYouDoneThis Design Choices. as of right now i still need to reinstall the strangers custom buttons and alt titles (like why are those there in the first place) and then ill be FUCKING DONE. FINALLY. coding is painful but fun. the difference between code and art is that, with code, you know when you've accomplished your goal (and in art, there is no goal...) 
+</br>this weekend's last invisible update is...NOW I USE AJAX TO LOAD THESE NEWS ARTICLES FROM A TEXT FILE SO I CAN ACTUALLY WRITE IN A PROPER WRITING PROGRAM. NO MORE ENDLESS LINES FOR ME! my next venture will be... changing the custom cursor! i wanna try something 3D DUDE I DON'T KNOW WHY I RIPPED OFF DISNEY IN THE FIRST PLACE I DON'T EVEN LIKE DISNEY THAT MUCH FDLKJFLSKA oh yeah i gotta change the background too that background is so old ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhHHHHHHHHHHHHHHHHHHHHHHHHHHHH OH OH OH AND NO WAIT IM TIRED OF WRITING THIS. <b>IN OTHER NEWS,</b> EXPECT ACTUAL NEW CONTENT FOR REALZIES SOMETIME THIS...SUMMER?
+
+5.26.18 expand yeti
+im going to start adding random pages on a whim and hiding them in the randomized menu. 
+by randomized menu i mean the section of the navigation header (yes, that is a navigation header) that isn't white
+and resets everytime you reload andor resize the page (lifehack).
+
+4.26.18 NEWER COMIC: burglar and child??? i dont really have a name for this thing
+yo what UP. just finished a new comic. i've submitted it to https://missanthology.wordpress.com/. saying that here 
+might not be a good idea because i dont know if i've been accepted yet, but yaknow what. buy a copy of missanthology when it comes out
+if you're in portland. this new comic was co-written by
+my friend lily. she doesn't really have a website or anything so you'll just have to suspend your disbelief. 
+from here on out, expect more collaborations to appear on your house and home, spicyyeti.com. 
+
+7.24.17 NEW COMIC: The Belly
+hi. the zine symposium went really well. both stickers and i had successful tables so we'll probably be making it a tradition to table annually. yay!
+in other news, im posting a new comic, <i>The Belly</i>, the most dramatic of my tales thus far. read it through clicking the gigantic preview above this news post or
+click the emo looking comic under the 'stories' page. i'm going to be Gone until the specified update-date but once i return the update schedule for this new comic is going to be
+at least a few pages a week. the specified update-date is also when i'm going to upload the zines i presented at the symposium.
+
+6.2.17 2017 ZINE SYMPOSIUM 
+howdy yall. im going to be doing the <a href='http://www.portlandzinesymposium.org/'>portland zine symposium</a> again this july, as is my friend
+<a href='http://seifukughost.deviantart.com/'>stickers!</a> my day is the 23rd and stickers is the 22nd.
+im going to be selling buttons and a new comic compilation ive been working on this year. stuff that isnt even ON THE WEBSITE YET!!! so yes, come. IT IS YOUR DESTINY.
+in other news... i applied for <a href='http://missanthology.com/'>this thing.</a> will my Maximum Diversity get me in? tune in next time at spicyyeti.com to find out.
+
+2.16.17 SITE UPDATE
+HI i just updated the website!!! everything is different now!!!
+ some shit is broken/missing, but as far as im concerned all of the available links should still work ;)
+  evidently, i still have things to change and add. like nicer labels for the navigation links,
+  or a gallery mechanism that isnt broken <i>teehee.</i> for now, enjoy. </br> in other news, i think my original post about this got lost in the update...?
+  but me and my friend world class painter <a href='https://www.instagram.com/pajam8/'>hampster</a> have created a speedpaint<a href='https://www.youtube.com/channel/UCZgKaQLZ5PRouwV-MC7lLTg'> youtube channel. SUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBESUBSCRIBE</a>
+
+11.6.16 The End of Strangersgelion
+(pasted from deviantart) as of Right Now im ending the strangers update schedule. im going to focus on compiling one-off joke comics that i can use to experiment with various styles; near the end of the year idlike to use the compilation for a zine convention called the zine symposium. it should be cool. i will update strangers here and there if i can think of anything, especially once the game is near completion. i dont know how i ever got carried away with the strangers comic strips because the initial idea for strangers was for it to be a game. it was a good exercise in keeping up the pace, though. anyways, purrhaps i can gain popularity with catchier one-off comics and then have an audience to show the game to?!??!?!!? really, once this game is done, who the hell is supposed to play it? Send Help? 
+
+6.17.16 LOOOOL SORRY
+UM YEAH I neglected to write this news post for an entire week because...well I guess I didn't have my laptop but yeah mostly because of laziness. Anyways, the reason Strangers hasn't updated this week is because I was taking some time to produce a bunch of new Strangers to upload while I'm on vacation. ''''Vacation'''' jk I'll just be working on something else. Regularupdates will commence strting next week.AND THAT'S THE WAY THE NEWS GOES! BYE!
+
+4.13.16 Whoops
+Sorry for the lack of updates during the past couple of days, I was sick. Today, enjoy your special 3xStrangersUpdate COMBO!!! Oh yeah and since it happens to be THE 4/13 that marks the ending of Homestuck, I'd like to say thx Andy Huzzie. You made something reallyspecial to me.
+
+2.14.16 Moderate Site Update
+Today marks the website's implementation of a comments system (thanks Disqus), a new <a href='fp'>'Fashion Photography'</a> page (find it on the Archive tab), and the beginning of Strangers' 4-day per week update schedule. Enjoy the Valentines Day <i>special</i>. Comments can be left on every story page and, of course,the homepage.
+
+12.1.15 NEW COMIC AGAIN?!?!
+Yet another comic has made it's way to Spicyyeti; Strangers. Get caught up with the THRILLING ROMANCE OF TWO PEOPLE WAITING AT A BUSSTOP!!! WOW!!! Was I being too forward? As each Brigade Mini takes a couple of weeks to make, Strangers should update nearly everyday, at least for a while.
+
+10.17.15 NEW COMIC!!!
+Isn't that neat? A new series of minicomics is being introduced to Spicyyeti; the Brigade Minis!!! Wow!!! The comics follow the stupid adventures of smelly kids. What else is new. Check the homepage (this one!) for the newest update, and check the story archive for anything you've missed ;)
+
+8.11.15 NEW JIGGLEA EP!
+HELLO WORLD! Did you know that I make MUSIC? Except I don't at all, and I can take even less credit for this EP than the previous Jigglea stuff. Onemight even say that I can take ZERO credit for this magnificent EP. Behold the work of Alisa in <a href='https://jigglea.bandcamp.com/album/ongst'>'Ongst'</a>here RIGHT NOW! Our next full album is coming...<i>coming soooooooon</i>...
+
+7.2.15 Zine Symposium
+I'ts been dusty around here, there not being much to upload. New pieces and new pages are on their way. </br> In other news, Spencer and I are going to have a table at the <a href='http://www.portlandzinesymposium.org/'>Zine Symposium</a> from the 18th to the 19th, taking place in Portland Oregon. If you live here, then good for you! Come on and see us :) Unfortunately, we won't be focusing so much on the zine anymore, so updates may become scarce. If only a comic would swoop in and save the appeal of this poor site...hmmmmm.........HMMMMMM........
+
+5.11.15 NEW SITE!
+With the help of my SICK (NOT LITERALLY SICK) FRIEND KENZAY. I'd like to thank all the sweet pies that carried me to fame. But seriously, Kenzie helped set up the basic layout of my website. She recreated my homepage and taught me how to do some of the <i>fancier</i> things--like the dropdown and the lightbox! DANG! At the moment, her website isn't ready yet--but once it's done, I'll have a link to it up on my 'about' page! Thanks Kenzie ;) ;) ;) ;) 
+

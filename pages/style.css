@@ -1,0 +1,325 @@
+		
+		/****************HTML/BODY/WINDOW****************/
+		:root {
+			--NCOLORS: 3;
+			--C1: #ff0d0d; /*red*/
+			--C2: #2e4cf4; /*blue*/
+			--C3: #2e4cf4;
+			/*--C3: #960943; dark purpley red*/
+			/*--C3: #008800; green*/
+			 /*--C3: #fcd71e;yellow/orange*/
+		}
+		
+		html {
+
+			background-color: black;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			background-attachment: fixed;
+			background-position: center;
+			font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック" , "MS Gothic", "Noto Sans CJK JP", TakaoPGothic, sans-serif;
+			font-size: 12pt;
+			overflow-x: hidden; /*no vertical scrolling*/
+			position: relative;
+			
+			/*for flip animation*/
+			animation-duration: .5s;
+            animation-fill-mode: forwards;
+		}
+		
+		1
+		
+		@keyframes aFlip {
+			100% {
+				transform: rotate(180deg);
+			}
+		}
+
+		* {
+			cursor: url("img/cursor.png"), auto;
+		}
+
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		
+		a *, a:hover {
+			cursor: url("img/cursorlink.png"), auto;
+		}
+		
+
+		html,body {height:100%;}
+
+		::-webkit-scrollbar {
+		    width: 10px;
+			height: 10px;
+		}
+
+		::-webkit-scrollbar-thumb {
+		    background: #566FFF;
+		}
+
+		::-webkit-scrollbar-track-piece  {
+		    background: #E6E6E6;
+		}
+
+		/******************LOGO*****************/
+
+		#logo {
+			background-color: white;
+			width: 350px;
+			height: 170px;
+			border-radius: 50% / 100%;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			transform: rotate(-5deg);
+			margin: auto;
+			margin-top: 5%;
+			text-align:center;
+		}
+		#logo svg {
+			width:200px;
+			transform: rotate(10deg);
+			margin-left: -15px;
+		}
+
+		#hornr, #hornl {
+		  width: 0;
+		  height: 0;
+		  border-left: 60px solid transparent;
+		  border-right: 10px solid transparent;
+		  border-bottom: 150px solid white;
+		  margin-bottom: -43%;
+		}
+		/*intentionally uneven rotations*/
+		#hornr {
+			transform: rotate(40deg);
+			margin-left: 75%;
+		}
+		#hornl{
+		  transform: rotate(-30deg);
+		  margin-left: 0;
+		}
+
+		/***************NAVIGATION BAR***************/
+
+		#header {
+			position: relative;
+			transform: rotate(-5deg);
+			white-space: nowrap;
+			width: 110%;
+			margin-left: -5%;
+			height: 65px;
+			text-align: center;
+			z-index: 5;
+		}
+
+		#header a{
+			height:inherit;
+		}
+
+		.item {
+			width: 130px;
+			height: calc(100% + 1px);
+			display: inline-block;
+			margin-left: -5px;
+		}
+		
+		/*THERE HAS GOT TO BE SOME WAY SO THAT I DON'T HAVE TO EFFIN SET A DEFAULT PALETTE IN BOTH CSS AND JS*/
+		.item:nth-child(1n) {
+			background: var(--C1);
+		}
+
+		.item:nth-child(2n) {
+			background: var(--C2);
+		}
+
+		.item:nth-child(3n) {
+			background: var(--C3);
+		}
+		
+		/*.item:nth-child(4n) {
+			background: var(--C4);
+		}*/
+
+		/*there needs to be NO SPACE between these*/
+		.item.mMenu {
+			background: white;
+		}
+
+		.item img, .item a, .item svg{
+			width: inherit;
+			height:inherit;
+		}
+
+		.mMenu:nth-child(1n) svg g{
+			fill: var(--C1);
+		}
+
+		.mMenu:nth-child(2n) svg g {
+			fill: var(--C2);
+		}
+
+		.mMenu:nth-child(3n) svg g {
+			fill: var(--C3);
+		}
+		
+		.mMenu:nth-child(4n) svg g {
+			fill: var(--C2);
+		}
+
+        
+		.item .tip {
+			visibility: hidden;
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 5px;
+			z-index: 1;
+			position: absolute;
+			bottom: 100%;
+		}
+        
+        /*exclude mobile*/
+        @media only screen and (min-width: 760px) {
+		    .item:hover .tip {visibility:visible;}
+        }
+        
+		/*************************CONTENT*****************************/
+
+		/*for some reason, content can't have position relative*/
+		/*in order for the blockbottom to work*/
+		#content{
+			transform: skewY(-5deg);
+			/*skewing messes up image quality but yaknow idk*/
+			background: white;
+			overflow: hidden;
+			width: calc(100% - 100px);
+			max-width: 1024px;
+			min-width: 600px;
+			margin: auto;
+			margin-bottom: 5%;
+			padding-bottom: 50px;
+			/*background: linear-gradient(to top, rgba(255,255,255,0)10%, rgba(255,255,255,1)30%);*/
+		}
+
+		.block {
+			position: relative;
+			background: none;
+			transform: skewY(5deg);
+			/*I LITERALLY UNSKEWED IT LOL WHAT*/
+			margin: 5%;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		/*@media (max-width: 700px) {.block {FIX THIS}}*/
+
+		.block > .label {
+			border-bottom-right-radius: 90%;
+			background: white;
+			display: inline-block;
+			margin: auto;
+			padding: 20px;
+			padding-right: 50px;
+			color: grey;
+			float: left;
+			height: 35px;
+			z-index: 1;
+		}
+
+		#blockTop {
+			background: yellow;
+			height: 100px;
+			max-width: 100%;
+			position: relative;
+			transform: rotate(0deg);
+			margin-top: -150px;
+			/*hides top edges completely*/
+			margin-bottom: -50px;
+			/*parallel lines of blockTop meet both top edges of block*/
+		}
+
+		#blockBottom {
+			position: absolute;
+			bottom: -9995px;
+			right: 0;
+			height: 9999px;
+			width: 100%;
+			background:white;
+			transform: rotate(0deg);
+			display: none;
+		}
+		
+		/***"SPICY" BUTTONS***/
+		.butnico {
+			height: 250px;
+			width: 250px;
+			border-radius: 50%;
+			margin-left: -5%;
+			position: absolute;
+			right: 0;
+			transform: skewY(5deg);
+		}
+
+		.butn {
+			z-index: 5;
+			width:85%;
+			height: 130px;
+			transform: skewY(-5deg);
+			margin: 5%;
+			margin-bottom: 100px;
+		}
+		
+		.butn *, .butn, .butnico *, .butnico {cursor: url("img/cursordropdown.png"), auto;}
+
+		a .butn *, a .butn, a .butnico *, a .butnico {cursor: url("img/cursorlink.png"), auto;}
+
+		/*
+		ignore warnings about not qualifying header idk what it's talking about
+		okay maybe not knowing what something is talking about is a legit reason to ignore it
+		ill get back to you on that one
+		*/
+		.butn h1, .butn p {
+			float:left;
+			margin: 2%;
+			margin-bottom: -2%;
+		}
+
+		.butn h1 {
+			font-size: 50px;
+		}
+
+		.butn p {
+			font-size: 25px;
+		}
+		
+		@media (max-width: 1090px) {
+			.butn h1 {font-size: 25px;}
+		}
+
+		/***COMMENTS***/
+		#disqus_thread {
+			padding: 3%;
+		}
+		
+		/***DROPDOWNS***/
+		.dropdown {
+			/*remember to add bg color locally
+			but why :)
+			*/
+			display: block;
+			position: relative;
+			z-index: -1;
+			width: calc(85 - 100px);
+			margin: auto;
+			text-align: center;
+			overflow: hidden;
+			transform: skewY(5deg);
+		}
+		.dropdown .block {
+			transform: skewY(0deg);
+			margin-top: 0px;
+			text-align: center;
+		}

@@ -1,0 +1,235 @@
+<html>
+<head>
+
+ <!--description for search engine ranking???-->
+<meta content="Property of LORD SPICYYETI of the SPICYYETI ESTATE">
+
+<!--this scales page for mobile viewports.-->
+    <meta content="width=device-width, initial-scale=.5" name="viewport" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<link rel="icon" type="image/ico" href="img/logo.ico"/>
+
+<style>
+
+	body {
+		text-align: center;
+		overflow: hidden;
+	}
+	.bar {
+		/*origin: first ball*/
+		transform-origin: 40px bottom;
+		margin-top: 50px;
+		transition: 0s;
+		
+		/*init*/
+		transform: rotate(35deg);
+	}
+	
+	.logo {
+		transform: scale(2);
+		
+		margin: auto;
+		margin-top: 300px;
+		z-index: 9999;
+		
+		position: fixed;
+		left: 0;
+		right: 0;
+	}
+	
+	.logo .content {
+		width: 50%;
+		margin-top: 80%;
+		margin-left: 24%;
+		height: 84%;
+		background: ;
+		position: relative;
+		z-index: 999;
+	}
+	
+	  /*FIREFOX
+		#property {
+			position: absolute;
+			FONT-WEIGHT: 500;
+			transform: scale(1);
+			margin-left: -27%;
+			width: 50px;
+			margin-top: 13px;
+			line-height: 19px;
+			text-align: right;
+			font-size: 6px;
+		}*/
+
+	/*CHROME*/
+	#property {
+		position: absolute;
+		FONT-WEIGHT: 500;
+		transform: scale(1);
+		margin-left: -27%;
+		width: 50px;
+		margin-top: 11px;
+		line-height: 16px;
+		text-align: right;
+		font-size: 6px;
+	}
+		
+	#spam {
+		font-style: italic;
+		line-height: 16px;
+		opacity: ;
+	}
+	
+	@media only screen and (max-width: 900px) {
+		.logo {
+			/*right: unset;
+			left: 400px;
+			transition: 0s;*/
+			margin-top: 500px;
+			transition: 0s;
+		}
+	}
+	
+</style>
+
+<script type="module">
+
+	/*IMPORTS*/
+	import * as Nav from './scripts/navbar.js';
+
+	/*MAIN*/
+	$(document).ready(function() {	
+		crank();
+		Nav.birth();
+		Nav.flashlight();
+		Nav.populate();
+	
+	});
+	
+	/*LAZY LOADING*/
+	$(window).scroll(function () {
+		//Nav.populate();
+	});
+	
+	$(window).resize(function(){
+		Nav.birth();
+		crank();
+		Nav.populate();
+	});
+	function crank() {
+		$('.bar').css('transform', 'rotate(' + (slice() - 3) + 'deg)');
+	}
+	function slice() {
+		var o = window.innerHeight;
+		var a = window.innerWidth;
+		var angle = rad2deg(Math.atan(o/a));
+		
+		console.log(o, a);
+	
+		return angle;
+	}
+	function rad2deg(rad) {
+		return rad*(180/Math.PI);
+	}
+	
+</script>
+<title>SPICYYETI</title>
+</head>
+<body>
+
+	<div id="header">
+		<!--LOGO-->
+		<a href="home.html">
+			<div class="logo">
+				<p class="tip" style="transform: scale(.5);">HOME</p>
+			
+				<div id="hornl"></div>
+				<div id="hornr"></div>
+				
+				<div class="content">
+					<p id="property">PROPERTY OF LORD SPICYYETI SPECIAL THANKS TO ALI AND KENZIE</p>
+					<p id="spam">
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+						spicyyeti.com
+					</p>
+				</div>
+			</div>
+		</a>
+		
+		<!--MENU-->
+		<div class="bar">
+			<div class="main_menu">
+				<a href="art.html"><div class="main item">
+					<p class="tip">ART</p>
+					<img src="img/navart.svg">
+				</div></a>
+				<a href="stories.html"><div class="main item">
+					<p class="tip">PROJECTS</p>
+					<img src="img/navstori.svg">
+				</div></a>
+				<a href="about.html"><div class="main item">
+					<p class="tip">ABOUT</p>
+					<img src="img/navabout.svg">
+				</div></a><a target="_" href="https://ko-fi.com/spicyyeti"><div class="item">
+					<p class="tip">PAY NOW</p>
+					<img src="img/navkofi.png">
+				</div></a><a target="_" href="https://www.patreon.com/spicyyeti"><div class="item">
+					<p class="tip">PAY LATER</p>
+					<img src="img/navpatreon.svg">
+				</div></a>
+			</div>
+		</div> 
+		
+	</div>
+	
+</body>
+</html>

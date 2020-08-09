@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<?php
+	if ($_GET["pg"] && $_GET["dir"]) {
+		$page = $_GET["pg"];
+		$comic = $_GET["dir"];			
+	} else {
+		$page = 1;
+		$comic = 'strangers';
+	}
+?>
+<html class="<?php echo $comic?>">
+<head>
+    <!--dont change the slashes for local editing
+    it doesn't work the same way on localhost as it does on the server
+	
+	ACTUALLY since / references the root of the current drive,
+	that means to sync up the hostgator server with my apache server
+	i need the apache server to be rooted in V5 instead of localhost
+	-->
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	
+	<link rel="shortcut icon" href="./img/icon.ico">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
+	<link rel="icon" type="image/ico" href="img/logo.ico"/>
+	
+	<style>
+		html {
+		    background: black;
+			color: white;
+		}
+
+		body {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			background: none;
+		}
+
+		a {
+			color: white;
+		}
+		
+		img {
+			display: block;
+			margin: auto;
+			max-width: 100%;
+		}
+
+		#content {
+		    background: none;
+		    /*set to none*/
+		    width: 100%;
+		    /*we unskew because SKEWING SERIOUSLY
+		    FUCKS UP ALL IMAGES ON THE SITE LIKE
+		    FUCK OFF*/
+		    transform: skewY(0deg);
+            color: white;
+            padding: 0;
+            margin: auto;
+		}
+
+		.block {
+		  text-align: center;
+		}
+		
+		/**navigation bar**/
+		.navi{
+		    display: block;
+		}
+		.navi p {
+		   display: inline-block; 
+		   color: white;
+		   padding: 25px;
+		}
+		
+		/*in case of custom buttons...*/
+		.navi img {
+		 padding: 10px;
+		}
+		
+		/**BURGLAR LITTLE MAN*/
+		.comicburglar {
+		    background: #302f30;
+		}
+		/*STRANGERS*/
+		.strangers {
+		    background-image: url("img/bghearts.png");
+		    background-color: #ffe5e5;
+		}
+		.strangers p, .strangers a {
+			color: black;
+		}
+	</style>
+	
+	<title>SPICYYETI</title>
+</head>
+<body>
+	<?php
+		//imports
+		include './scripts/functions.php';
+		
+		//vars
+		$img = "";
+		//
+		$pages = copy_array(loadDirectory($comic, '', 'alphanumerical'));
+		//
+		$first = 1;
+		$last = count($pages);
+	?>
+	
+    <div id="content">
+        <div class="block">
+            
+            <a href="./stories#<?php echo $comic ?>">
+                <p style="margin: 50px;">HOME</p>
+            </a>
+            
+		   <?php
+				//main
+				if(strpos($pages[0], '.png') > -1) {
+					//display this PAGE
+					$page = $page . ".png";
+					echo "<img src='" . $comic . "/" . $page . "'>";
+				} else {
+					//display all the pages in this FOLDER
+					$chapter = loadDirectory($comic . '/' . $page, '', 'alphanumerical');
+					foreach($chapter as $ch) {
+						echo "<img src='" . $comic . "/" . $page . "/" . $ch . "'>";
+					}
+				}
+				
+				//vars...2!
+				//
+				$next = getNext($page, $pages);
+				$prev = getPrev($page, $pages);
+				//
+				$first_link = url($first, $comic);
+				$last_link = url($last, $comic);
+				$next_link = url($next, $comic);
+				$prev_link = url($prev, $comic);
+				
+				//functions
+				function getPrev($page, $pages) {
+					$prev_index = array_search($page, $pages) - 1;
+					if($prev_index < 0) {
+						return -1;
+					} else {
+						return ++$prev_index;
+					}
+				}
+				function getNext($page, $pages) {
+					$next_index = array_search($page, $pages) + 1;
+					if($next_index >= count($pages)) {
+						return -1;
+					} else {
+						return ++$next_index;
+					}
+				}
+				
+				function url($pg=1, $dir="strangers") {
+					return $dir . $pg;
+				}
+		   ?>
+		   
+			<div class="navi">
+				<a id="rr" href="<?php echo $first_link ?>">
+					<p> << </p> 
+				</a>
+				<a id="r" href="<?php echo $prev_link ?>"> 
+					<p> < </p> 
+				</a>
+				<a id="f" href="<?php echo $next_link; ?>">
+					<p> > </p> 
+				</a>
+				<a id="ff" href="<?php echo $last_link ?>"> 
+					<p> >> </p> 
+				</a>
+			</div>
+			
+		 </div>
+    </div>
+	
+</body>
+<script>
+
+	$(document).ready(function() {
+		$('.navi a').each(function() {
+			if($(this).attr('href').includes('-1')) {
+				$(this).css('visibility', 'hidden');
+				$(this).attr('href', '');
+			}
+		});
+	});
+	
+	document.onkeydown = function(e) { 
+		var nxt = $('#f').attr('href');
+		var bck = $('#r').attr('href');
+		
+		console.log(nxt, bck);
+		
+		switch (e.keyCode) { 
+			case 37: 
+				str = 'Left Key pressed!'; 
+				if(bck) {
+					window.location.href = bck;
+				} 
+				break; 
+			case 39: 
+				str = 'Right Key pressed!'; 
+				if(nxt) {
+					window.location.href = nxt;
+				} 
+				break; 
+		} 
+		//console.log(str);
+	}; 
+
+</script>
+</html>

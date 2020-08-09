@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="../img/icon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico|Old+Standard+TT|Cinzel|Pinyon+Script' rel='stylesheet' type='text/css'>
+	<style>
+		html {
+			background-image: url("../img/bg1.png");
+		    background-color: #352222;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center top;
+			font-family: 'Anaheim', sans-serif;
+			font-size: 11pt;
+			letter-spacing: -1px;
+		}
+		body {
+			margin: 0;
+		}
+
+		h2 {
+			font-size: 21pt;
+		}
+		
+		/* header */
+			
+			#header {
+				width: 100%;
+				text-align: center;
+			}
+
+			#home {
+				display: inline-block;
+				width: 180px;
+				height: 90px;
+				padding-top: 20px;
+				box-sizing: border-box;
+				background: none;
+				margin-top: 30px;
+				margin-bottom: -45px;
+			
+			}
+
+			#home a {
+			    text-decoration: none;
+			    color: white;
+			    text-shadow:#663300 1px 2px;
+			    font-size: 28pt;
+			}
+
+			#home a:hover {
+			    color: yellow;
+			    text-shadow: #663300 1px 2px;
+			}
+
+			#nav {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				height: 40px;
+				margin-top: 5px;
+			}
+
+			#nav li {
+				display: inline-block;
+			}
+
+			#nav .button {
+				margin: 0 10px;
+				color:#C28585;
+				text-shadow: #663300 2px 2px;
+				cursor: pointer;
+			}
+			
+			#nav .current {
+			color: grey;
+			}
+
+			#nav .button:hover {
+				color: #FFF;
+				text-shadow: #000 2px 2px;
+			}
+				
+			a:link  {
+			text-decoration: none;}
+			
+			a:visited {
+			text-decoration: none;}
+			
+			a:hover{
+			text-decoration: none;}
+
+			a:active{
+			text-decoration: none;}
+		
+		/* content */
+			#content {
+				width: 80%;
+				margin: auto;
+				overflow: visible;
+				padding-top: 50px;
+				padding-bottom: 50px;
+				text-align: center;
+			}
+			
+			.block {
+				width: 100%;
+				margin: auto;
+				margin-top: 30px;
+				position: relative;
+				overflow: hidden;
+				text-align: center;
+				
+			}
+			
+			.block > .content {
+				text-align: center;
+			}
+
+			.block > .label {
+				position: relative;
+				background: #993333;
+				display: inline-block;
+				margin: auto;
+				padding: 20px;
+				padding-right: 50px;
+				color: grey;
+				float: left;
+				height: 35px;
+				z-index: 1;
+			}
+			
+			.block > .label.center {
+			    float: none;
+			    border-radius: 90%;
+			    border-top-left-radius: 0;
+			    border-top-right-radius: 0;
+			    margin-top: -55px;
+			    padding-right: 30px;
+			    padding-left: 30px;
+			    padding-top: 60px;
+			}
+			
+			.block > .label.center ~ .content {
+				margin-top: -65px;
+			}
+
+			.block > .label span {
+				transform: rotate(-5deg);
+				position: relative;
+				display: inline-block;
+			}
+
+			.block > .label.center span {
+				transform: none;
+			}
+			
+			p {
+			font-size: 30px;
+			font-family: 'Cinzel', serif;
+			color: white;
+			text-align: center;
+			text-shadow: 2px 2px 2px black;
+			}
+			
+			.cover {height:400px;}
+			
+			@media (min-width: 600px) {
+			.cover{
+				margin-bottom: 5px;
+				box-shadow: 6px 5px 20px black;
+			}}
+			
+			@media (max-width: 600px) {
+			.cover{
+			width: 100%;
+			margin-bottom: 5px;
+			box-shadow: 6px 5px 20px black;
+			display: block;
+			}}
+			
+			a {
+			cursor: pointer;}
+
+			#title {
+			width: 30%;
+			}
+			
+	</style>
+	<title> Spicyyeti</title>
+</head>
+<body>
+	<div id="header">
+		<h1 id="home" class="label"><a href="../home.html"><<<</a></h1>
+	</div>
+
+	<div id="content">
+		<img id="title" src="../img/nwe.png">
+		<p><b>"NWE" was a Portland-based zine produced by a bunch of teenagers; </b>Our goal was to promote artwork made by kids 0-19 by printing art submitted to us
+		and handing them out to comic book stores for free. For a link to an artist's website, click on their piece.</p><p style="color:red;font-weight:bold">Out of commission since 2016.</p>
+		 <div class="block">
+	        <a href="../NWE/nwe4.html"> <img class="cover" src="../img/cover 4.png"> </a>
+	       	<a href="../NWE/nwe3.html"> <img class="cover" src="../img/cover 3.png"> </a>
+			<a href="../NWE/nwe2.html"> <img class="cover" src="../img/cover 2.png"> </a>
+			<a href="../NWE/nwe1.html"> <img class="cover" src="../img/cover 1.png"> </a>
+		</div>
+	</div>
+</body> 
+</html>
