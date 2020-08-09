@@ -1,0 +1,242 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		
+		$('.face').each(function(i, e){
+			randomizeColor("background", this);
+		});
+		$('h1').each(function(i, e){
+			randomizeColor("color", this);
+		});
+		
+		Xangle = 0;
+		Yangle = 0;
+		/*starting point is half of depth*/
+		Z = -50;
+		increment = 30;
+		
+		/*BUTTONS*/
+		$('.shiftRight').click(function(){
+			shift("right");
+		});
+		$('.shiftLeft').click(function(){
+			shift("left");
+		});
+		
+		$('.shiftUp').click(function(){
+			shift("up");
+		});
+		
+		$('.shiftDown').click(function(){
+			shift("down");
+		});
+		
+		/*ARROWKEYS*/
+		$(document).keydown(function(e) {
+		
+			switch(e.which) {
+				case 37: //left
+					shift("left");
+					break;
+				case 38: //up
+					shift("up");
+					break;
+				case 39: //right 
+					shift("right");
+					break;
+				case 40: //down
+					shift("down");
+					break;
+				default: //any other key 
+					return;
+			}
+		
+		});
+		
+		/*functions*/
+		function shift(direction="") {
+			
+			switch(direction) {
+				case "left":
+					Yangle -= increment;
+					break;
+				case "right":
+					Yangle += increment;
+					break;
+				case "up":
+					Xangle += increment;
+					break;
+				case "down":
+					Xangle -= increment;
+					break;
+				default:
+					console.log("direction " + direction + " not defined");
+					break;
+			}
+			
+			/*TRIED TO EMULATE
+				.box.show-front  { transform: translateZ( -50px) rotateY(   0deg); }
+				.box.show-back   { transform: translateZ( -50px) rotateY(-180deg); }
+				.box.show-right  { transform: translateZ(-150px) rotateY( -90deg); }
+				.box.show-left   { transform: translateZ(-150px) rotateY(  90deg); }
+				.box.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+				.box.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+			TO RID OF FUZZ.
+			CANT REALLY TELL IF IT WORKED???
+			at least i used math to identify sides.*/
+			console.log(Yangle + " " + Xangle);
+			if(Yangle % 180 == 0 || Yangle == 0) {
+				console.log("front or back");
+				Z = -50;
+			} else if (Yangle % 90 == 0) {
+				console.log("left or right");
+				Z = -150;
+			}
+			
+			if(Xangle % 180 == 0 || Xangle == 0) {
+				//we're not on top or bottom, 
+				//prevent next if statement 
+			} else if (Xangle != 0 && Xangle % 90 == 0) {
+				console.log("top or bottom");
+				Z = -100;
+			}
+
+			shiftBox();
+		}
+
+		function shiftBox(){
+			$('.box').css('transform', 'translateZ(' + Z + 'px) rotateX(' + Xangle + 'deg) rotateY(' + Yangle + 'deg)');
+		}
+		function randomizeColor(property="", me) {
+			$(me).css(property, "rgb(" 
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) 
+				+ ", 0.8)");
+		}
+		
+	});
+	
+</script>
+
+<style>
+
+	body {
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		justify-content: center;
+		margin-top: 10%;
+		background: black;
+		color: red;
+		font-family: Serif;
+	}
+	
+	h1{
+		text-shadow: 2px 2px gray;
+	}
+	.shifters {
+		margin: 50px;
+	}
+	.shifters h1 {
+		display: inline;
+		margin: 20px;
+		cursor: pointer;
+	}
+
+	.scene {
+		width: 300px;
+		height: 200px;
+		perspective: 600px;
+		
+	}
+	.box {
+		width: 300px;
+		height: 200px;
+		position: relative;
+		transform-style: preserve-3d;
+		font-size: 100px;
+		
+		/*UNFUZZING
+			we push the z origin back so that the front face's font is not transformed.
+			fonts dont have transformation anti aliasing so they fuzz whence transformed.
+			"3D transforms affect text rendering. When you apply a 3D transform,
+			browsers take a snap-shot of the element and then re-render those pixels with 3D transforms applied.
+			As such, fonts don’t have the same anti-aliasing given their transformed size."
+		*/
+		transform: translateZ(-50px);
+		transition: transform .09s;
+	}
+	
+	.face {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		border-style: solid;
+		text-align: center;
+	}	
+	
+	.front, .back {
+		width: 300px;
+		height: 200px;
+	}
+	
+	.right, .left {
+		width: 100px;
+		height: 200px;
+		
+		/*center elements*/
+		left: 100px;
+	}
+	
+	.top, .bottom {
+		width: 300px;
+		height: 100px;
+		
+		/*center elements*/
+		top: 50px;
+	}
+	
+	/*Z values must add up to total depth*/
+	.front {transform: rotateY(0deg) translateZ(50px);}
+	.back {transform: rotateY(180deg) translateZ(50px);}
+	
+	.top {transform: rotateX(90deg) translateZ(100px);}
+	.bottom {transform: rotateX(-90deg) translateZ(100px);}
+	
+	/*Z values must add up to total width*/
+	.right {transform: rotateY(90deg) translateZ(150px);}
+	.left {transform: rotateY(-90deg) translateZ(150px);}
+
+</style>
+
+</head>
+<body>
+
+	<h1>use arrow keys if you want</h1>
+
+	<div class="scene">
+		<div class="box">
+			<div class="face front">fr</div>
+			<div class="face back">bck</div>
+			<div class="face top">to</div>
+			<div class="face bottom">bm</div>
+			<div class="face right">ri</div>
+			<div class="face left">le</div>
+			
+		</div>
+	</div>
+	
+	<div class="shifters">
+		<h1 class="shiftRight">></h1>
+		<h1 class="shiftLeft"><</h1>
+		<h1 class="shiftDown">v</h1>
+		<h1 class="shiftUp">^</h1>
+	</div>
+
+</body>
+</html>

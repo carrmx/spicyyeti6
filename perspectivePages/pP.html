@@ -1,0 +1,46 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('*').each(function(){
+			randomizeColor("color", $(this));
+		});
+	});
+	
+	function randomizeColor(property="", me) {
+		$(me).css(property, "rgb(" 
+			+ Math.floor((Math.random() * 255) + 1) + ","
+			+ Math.floor((Math.random() * 255) + 1) + ","
+			+ Math.floor((Math.random() * 255) + 1) 
+			+ ", 0.8)");
+	}
+</script>
+<style>
+	body {
+		background: black;
+		text-align: center;
+		margin-top: 10%;
+		text-shadow: 1px 1px 2px grey;
+	}
+	img {
+		display: block;
+		margin: auto;
+		margin-bottom: 30px;
+		max-width: 30%;
+	}
+</style>
+</head>
+<body>
+	<h1>PERSPECTIVE PAGES</h1>
+	<h2>sigh. you wandered in here, huh? good luck.</h2>
+	<a href="dome.html"><img src="img/dome.PNG"></a>
+	<a href="cube.html"><img src="img/cube.PNG"></a>
+	<a href="box.html"><img src="img/box.PNG"></a>
+	<a href="carousel.html"><img src="img/carousel.PNG"></a>
+	<a href="cardflip.html"><img src="img/cardflip.PNG"></a>
+	<a href="perspective.html"><img src="img/perspective.PNG"></a>
+	
+</body>
+</html>

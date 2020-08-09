@@ -1,0 +1,15 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<style>
+	/*SSI/SHTML is an html file that includes server instructions*/
+	body {
+		background-image: url("../img/406.png");
+		background-position: center top;
+		background-repeat: no-repeat;
+	}
+</style>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+
+	body {
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		justify-content: center;
+		margin-top: 10%;
+		background: black;
+		color: white;
+		font-family: Serif;
+		font-size: 30px;
+		overflow: hidden;
+	}
+	
+	h1{
+		text-shadow: 2px 2px gray;
+		margin: 0;
+	}
+	.shifters {
+		margin-top: 20px;
+	}
+	.shifters h1 {
+		display: inline;
+		cursor: pointer;
+		margin-left: 20px;
+	}
+
+	.scene {
+		margin-bottom: 10%;
+		position: relative;
+		perspective: 450px;
+		/*background: blue;*/
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		justify-content: center;
+	}
+	.carousel {
+		width: 210px;
+		height: 210px;
+		position: absolute; 
+		transform-style: preserve-3d;
+		transform: translateZ(200px);
+		transition: transform 1s; 
+	}
+	#y-axis {
+		transform: translateZ(200px) rotate(90deg);
+	}
+
+	.cell {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: .7;
+		background: #36abff;
+		text-align: center;
+		border: 1px solid blue;
+	}	
+	
+	.carousel:nth-of-type(2) .cell {
+
+	}
+	
+	.cell:nth-child(1) { transform: rotateY(108deg) translateZ(323px); }
+	.cell:nth-child(2) { transform: rotateY(144deg) translateZ(323px); }
+	.cell:nth-child(3) { transform: rotateY(180deg) translateZ(323px); }
+	.cell:nth-child(4) { transform: rotateY(216deg) translateZ(323px); }
+	.cell:nth-child(5) { transform: rotateY(252deg) translateZ(323px); }
+	
+	#b2 {
+		/*rotateY starts at 180
+		is incremented by y unit * 36
+		rotate X starts at 0
+		is incremented by x unit * 36*/
+		transform: rotateY(-216deg) rotateX(36deg) translateZ(323px);
+	}
+	
+</style>
+
+</head>
+<body>
+	<div class="scene">
+		<div id="x-axis" class="carousel">
+			<!--<div class="cell og">1</div>
+			<div class="cell og">2</div>
+			<div class="cell og">3</div>
+			<div class="cell og">4</div>
+			<div class="cell og">5</div>-->
+		</div>
+		<div id="y-axis" class="carousel">
+			<!--<div class="cell og">a</div>
+			<div class="cell og">b</div>
+			<div class="cell og">c</div>
+			<div class="cell og">d</div>
+			<div class="cell og">e</div>-->
+		</div>
+	</div>
+</body>
+<script>
+	
+	$(document).ready(function(){
+		var gridlen = 9;
+		
+		for(iy = 1; iy <= gridlen; iy++) {
+			for(ix = 1; ix <= gridlen; ix++) {
+	
+				console.log(iy, ix);
+				
+				let rY = 180 + (iy * 36);
+				let rX = ix * 36;
+				
+				setTimeout(function() {		
+					jQuery('<div/>', {
+						id: ix + '_' + iy,
+						'class': 'cell'
+					}).appendTo('#x-axis').css('transform', 'rotateY('+rY+'deg) rotateX('+rX+'deg) translateZ(323px');
+				}, 30 * ix * iy);
+			}
+		}
+		
+	});
+	
+</script>
+</html>

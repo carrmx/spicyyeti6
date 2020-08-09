@@ -1,0 +1,234 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		
+		/*INITIALIZE SLIDER*/
+		slider = document.getElementById("mySlider");
+		slider.value = $('.carousel .cell').length;
+		$('.n_cells').text(slider.value);
+		
+		/*this is a margin between sides. add it to the Z value if you want it to show*/
+		zslack = 50;
+	
+		/*KEEP TRACK OF ANGLE FOR SPINNING but this probably could be done in a mor efficient way*/
+		Yangle = 0;
+		
+		setCells();
+		
+		/*slider.oninput = function() {	
+			setCells();	
+		}*/
+		slider.addEventListener('input', setCells);
+		slider.addEventListener('change', setCells);
+
+		/*STYLE*/
+		$('h1').each(function(i, e){
+			randomizeColor("color", this);
+		});
+		
+		/*BUTTONS*/
+		$('.shiftRight').click(function(){
+			shift("left");
+		});
+		$('.shiftLeft').click(function(){
+			shift("right");
+		});
+		
+		/*ARROWKEYS*/
+		$(document).keydown(function(e) {
+		
+			/*felt more natural to invert controls*/
+			switch(e.which) {
+				case 37: //left
+					shift("right");
+					break;
+				case 39: //right 
+					shift("left");
+					break;
+				default: //any other key 
+					return;
+			}
+		
+		});
+		
+		/*FUNCTIONS*/
+		/***********/
+		function setCells(last) {
+			/*UPDATE SLIDER TEXT*/
+			$('.n_cells').text(slider.value);
+			
+			var current = $('.carousel .cell').length;
+			/*FIND NUMBER OF CELLS SET BY SLIDER*/
+			var input = slider.value;
+			
+			/*FIRST FIND ROTATIONAL INCREMENT*/
+			angle = 360 / input;
+			
+			/*THEN FIND CELL Z INDEX*/
+			Z = calculateZ(input, $('.cell').width());
+			
+			//resetting the z index of the carousel itself with spin() keeps the sizes consistent 
+			spin();
+			
+			/*ADD OR SUBTRACT CELL*/
+			var adjust = input - current;
+			
+			if(adjust > 0) {
+				//console.log("add " + adjust);
+				$('.carousel').append(
+					$('<div />', {
+						"class" : "cell"
+						,text : input
+					})
+				);
+			} else if (adjust < 0) {
+				//console.log("subtract " + adjust);
+				$('.carousel .cell').last().remove();
+			}
+				
+			/*APPLY CHANGES TO EXISTING CELLS*/
+			$('.cell').each(function(i, e){
+				randomizeColor("background", this);
+				$(this).css("color", "red");
+				$(this).css('transform', 'rotateY(' + angle * (this.innerHTML - 1) + 'deg) translateZ(' + Z + 'px)');
+			});
+		}
+		function calculateZ(nCells, cellSize) {
+			var tz = Math.round( (cellSize / 2) / Math.tan(Math.PI / nCells) );
+			return tz + zslack; 
+		}
+		function shift(direction="") {
+			
+			switch(direction) {
+				case "left":
+					Yangle -= angle;
+					break;
+				case "right":
+					Yangle += angle;
+					break;
+				default:
+					console.log("direction " + direction + " not defined");
+					break;
+			}
+			
+			spin();
+		}
+
+		function spin(){
+			$('.carousel').css('transform', 'translateZ(' + -Z + 'px) rotateY(' + Yangle + 'deg)');
+		}
+	
+		function randomizeColor(property="", me) {
+			$(me).css(property, "rgb(" 
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) 
+				+ ", 0.8)");
+		}
+	
+	});
+	
+</script>
+
+<style>
+
+	body {
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		justify-content: center;
+		margin-top: 10%;
+		background: black;
+		color: white;
+		font-family: Serif;
+		font-size: 30px;
+	}
+	
+	h1{
+		text-shadow: 2px 2px gray;
+		margin: 0;
+	}
+	.shifters {
+		margin-top: 20px;
+	}
+	.shifters h1 {
+		display: inline;
+		cursor: pointer;
+		margin-left: 20px;
+	}
+
+	.scene {
+		width: 210px;
+		height: 140px;
+		position: relative;
+		perspective: 1000px;
+		/*background: blue;*/
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		justify-content: center;
+	}
+	.carousel {
+		width: 100%;
+		height: 150px;
+		position: absolute; 
+		transform-style: preserve-3d;
+		/*transform: translateZ(-288px);*/
+		transition: transform 1s; 
+		background: yellow;
+	}
+
+	.cell {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 10px;
+		top: 10px;
+
+		background: orange;
+		text-align: center;
+	}	
+	
+	
+	/*.cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px);}
+	.cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
+	.cell:nth-child(3) { transform: rotateY( 80deg) translateZ(288px); }
+	.cell:nth-child(4) { transform: rotateY(120deg) translateZ(288px); }
+	.cell:nth-child(5) { transform: rotateY(160deg) translateZ(288px); }
+	.cell:nth-child(6) { transform: rotateY(200deg) translateZ(288px); }
+	.cell:nth-child(7) { transform: rotateY(240deg) translateZ(288px); }
+	.cell:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
+	.cell:nth-child(9) { transform: rotateY(320deg) translateZ(288px); }*/
+	
+</style>
+
+</head>
+<body>
+
+	<h1>use arrow keys if you want</h1>
+
+	<div class="scene">
+		<div class="carousel">
+			<!--leaving the minimum number of cells here-->
+			<div class="cell">1</div>
+			<div class="cell">2</div>
+			<div class="cell">3</div>
+		</div>
+	</div>
+	
+	<div class="shifters">
+		<h1 class="shiftLeft"><</h1>
+		<h1 class="shiftRight">></h1>
+	</div>
+	
+	<h1 class="n_cells">0</h1>
+	<div class="slider">
+		<input type="range" min="3" max="15" value="3" id="mySlider">
+	</div>
+
+</body>
+</html>

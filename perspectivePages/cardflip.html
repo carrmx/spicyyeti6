@@ -1,0 +1,92 @@
+<html>
+<head>
+<script> 
+	window.onload = function() {
+		var card = document.querySelector('.card');
+		card.addEventListener( 'click', function() {
+		  card.classList.toggle('flipped');
+		});
+	}
+</script>
+<style>
+	body{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 30%;
+		background: black;
+	}
+	/*SCENE CONTAINS PERSPECTIVE*/
+	.scene {
+		perspective: 600px;
+		width: 200px;
+		height: 260px;
+		background: white;
+	}
+	/*OBJECT CONTAINS FACES*/
+	.card {
+		background: gray;
+		width: 100%;
+		height: 100%;
+		
+		/*PASSING DOWN PERSPECTIVE
+		perspective only applies to immediate children
+		but 'preserve 3d' can allow elements to pass down inherited perspective to their children
+		*/
+		transform-style: preserve-3d;
+		transition: transform 2s;
+	}
+	.card.flipped {
+		transform: rotateY(120deg);
+	}
+	/*FACES*/
+	.face{
+		width: inherit;
+		height: inherit;
+		display: inline-block;
+		
+		/*POSITIONING FACES IN 3D SPACE
+		position:absolute does this im guessing through
+		allowing the elements to layer on top of each other in space
+		*/
+		position: absolute;
+		
+		/*HIDING BACKFACE OF ELEMENT
+		at first i was like how does html even know theres a backface there
+		but i realized it means like
+		if you flipped a lone face in perspective, normally it would show a flipped image of that element.
+		with backface hidden it just uh makes the element invisible when you do that i guess
+		*/
+		backface-visibility: hidden;
+	
+	}
+	#front {
+		background: pink;
+	}
+	#back {
+		background: green;
+		
+		/*INITIALIZE BACK AS INVISIBLE
+		we are facing its backface */
+		transform: rotateY(180deg);
+	}
+
+</style>
+</head>
+<body>
+
+	<div class="scene">
+		<div class="card">
+			
+			<div class="face" id="front">front</div>
+			<div class="face" id="back">back</div>
+
+			<!--last listed element has higher z-index by default-->
+			<!--when i had the front element beneath the back element,
+			backface visibility was like partially overridden. -->
+			
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html>
+<head>
+<style>
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20%;
+		display: block;
+	}
+	
+	:root {
+		--red: red;
+	}
+
+	.panel {
+		background: gray;
+		height: 200px;
+		width: 200px;
+		margin-bottom: 10%;
+		box-shadow: -5px 10px;
+		
+		transform: rotateY(45deg);
+	}
+	
+	.lone {
+		background: green;
+		
+		/*INDIVIDUAL VANISHING POINTS
+		perspective can take form as a transformation on the element itself.
+		if you used this on a bunch of elements they'd have their own vanishing points
+		and not appear to be in the SAME perspective. interesting idea :smirk:
+		*/
+		transform: perspective(600px) rotateY(45deg);
+	}
+
+	.container {
+		padding-left: 20%;
+		background: pink;
+		
+		/*
+		perspective can also take form as property in container element
+		*/
+		perspective: 370px;
+		
+		/*VANISHING POINT POSITION
+		perpsective origin: x, y
+		determines the position of the vanishing point relative to the container.
+		automatically in the center.
+		the cardflip is probably achieved by animating the vp situation,
+		considering you can use negative values AND that setting x to -100% 
+		makes the object "invisible"
+		*/
+		perspective-origin: -50% 50%;
+	}
+	
+	.funcs {
+		background: gray;
+		perspective: 500px;
+	}
+	.funcs .panel {
+		background: orange;
+	}
+	.funcs .panel:nth-child(1) {
+		/*PUSHING BACK/FORWARD IN SPACE
+		oh it looks like transform properties override each other completely
+		so these panels have no perspective 
+		*/
+		transform: translateZ(-50px);
+	}
+	.funcs .panel:nth-child(2) {
+		/*PUSHING BACK/FORWARD IN SPACE*/
+		transform: translateZ(50px);
+	}
+	.funcs .panel:nth-child(3) {
+		/*ROTATING X AXIS*/
+		transform: rotateX(45deg);
+	}
+	.funcs .panel:nth-child(4) {
+		/*ROTATING Y AXIS*/
+		transform: rotateY(45deg);
+	}
+	.funcs .panel:nth-child(5) {
+		/*ROTATING Z AXIS
+		its like rolling the object 
+		*/
+		transform: rotateZ(45deg);
+	}
+	/*NOTE: 
+	SHORTHAND NOTATION causes hardware acceleration
+	they are transform3d() functions
+	*/
+	.funcs .panel:nth-child(6) {
+		/*SHORTHAND TRANSLATION
+		translate3d( tx, ty, tz )
+		z moves diagonally
+		*/
+		transform: translate3d(20px, 80px, -50px);
+	}
+	.funcs .panel:nth-child(7) {
+		/*SHORTHAND SCALING
+		scale3d( sx, sy, sz )
+		sz doesnt appear to do anything at all lol
+		theres no units cuz its a factor or whatever
+		*/
+		transform: scale3d(2, .5, -.5);
+	}
+	.funcs .panel:nth-child(8) {
+		/*SHORTHAND ROTATION
+		rotate3d( rx, ry, rz, angle )
+		appears that the rotation values use the angle as a factor? wow that is weird
+		*/
+		transform: rotate3d(-4, 1, -2, 10deg);
+	}
+
+
+</style>
+</head>
+<body>
+	<div class="container funcs">
+		<div class="panel "></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+		<div class="panel "></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+	</div>
+	<div class="container">
+		<div class="panel "></div>
+		<div class="panel"></div>
+		<div class="panel"></div>
+		<!--looks like layering perspective actually 
+		lowers the perspective value (more skewed)
+		<div class="panel lone"></div>-->
+	</div>
+	
+	<div class="panel lone"></div>
+	<div class="panel lone"></div>
+		
+</body>
+</html>

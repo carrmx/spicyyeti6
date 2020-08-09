@@ -1,0 +1,187 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		
+		$('.face').each(function(i, e){
+			randomizeColor("background", this);
+		});
+		$('h1').each(function(i, e){
+			randomizeColor("color", this);
+		});
+		
+		Xangle = 0;
+		Yangle = 0;
+		increment = 30;
+		
+		/*BUTTONS*/
+		$('.shiftRight').click(function(){
+			shift("right");
+		});
+		$('.shiftLeft').click(function(){
+			shift("left");
+		});
+		
+		$('.shiftUp').click(function(){
+			shift("up");
+		});
+		
+		$('.shiftDown').click(function(){
+			shift("down");
+		});
+		
+		/*ARROWKEYS*/
+		$(document).keydown(function(e) {
+		
+			switch(e.which) {
+				case 37: //left
+					shift("left");
+					break;
+				case 38: //up
+					shift("up");
+					break;
+				case 39: //right 
+					shift("right");
+					break;
+				case 40: //down
+					shift("down");
+					break;
+				default: //any other key 
+					return;
+			}
+		
+		});
+		
+		/*functions*/
+		function shift(direction="") {
+			switch(direction) {
+				case "left":
+					Yangle = Yangle - increment;
+					break;
+				case "right":
+					Yangle = Yangle + increment;
+					break;
+				case "up":
+					Xangle = Xangle + increment;
+					break;
+				case "down":
+					Xangle = Xangle - increment;
+					break;
+				default:
+					console.log("direction " + direction + " not defined");
+					break;
+			}
+			shiftCube();
+		}
+		function shiftCube(){
+			$('.cube').css('transform', 'translateZ(-100px) rotateX(' + Xangle + 'deg) rotateY(' + Yangle + 'deg)');
+		}
+		function randomizeColor(property="", me) {
+			$(me).css(property, "rgb(" 
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) + ","
+				+ Math.floor((Math.random() * 255) + 1) 
+				+ ", 0.5)");
+		}
+		
+	});
+	
+</script>
+
+<style>
+
+	body {
+		display: flex;
+		flex-direction: column;/*like block*/
+		align-items: center;
+		margin-top: 10%;
+		background: black;
+		color: blue;
+	}
+	
+	h1{
+		text-shadow: 2px 2px gray;
+	}
+	.shifters {
+		margin: 50px;
+	}
+	.shifters h1 {
+		display: inline;
+		margin: 20px;
+		cursor: pointer;
+	}
+
+	.scene {
+		width: 200px;
+		height: 200px;
+		perspective: 150px;
+		
+	}
+	.cube {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		transform-style: preserve-3d;
+		font-size: 100px;
+		
+		/*UNFUZZING
+			we push the z origin back so that the front face's font is not transformed.
+			fonts dont have transformation anti aliasing so they fuzz whence transformed.
+			"3D transforms affect text rendering. When you apply a 3D transform,
+			browsers take a snap-shot of the element and then re-render those pixels with 3D transforms applied.
+			As such, fonts don’t have the same anti-aliasing given their transformed size."
+		*/
+		transform: translateZ(-100px);
+		transition: transform .2s;
+	}
+	
+	.face {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		border-style: solid;
+		text-align: center;
+	}	
+	
+	/*!ORDER IS IMPORTANT!
+		the order the transform appears in decides how the object will appear
+		just think logically about initializing the planes i guess???
+	*/
+	.front {transform: rotateY(0deg) translateZ(100px);}
+	.right {transform: rotateY(90deg) translateZ(100px);}
+	.back {transform: rotateY(180deg) translateZ(100px);}
+	.left {transform: rotateY(-90deg) translateZ(100px);}
+	.top {transform: rotateX(90deg) translateZ(100px);}
+	.bottom {transform: rotateX(-90deg) translateZ(100px);}
+	
+</style>
+
+</head>
+<body>
+
+	<h1>use arrow keys if you want</h1>
+
+	<div class="scene">
+		<div class="cube">
+			<div class="face front">fr</div>
+			<div class="face back">bck</div>
+			<div class="face top">t</div>
+			<div class="face bottom">bm</div>
+			<div class="face right">r</div>
+			<div class="face left">l</div>
+			
+		</div>
+	</div>
+	
+	<div class="shifters">
+		<h1 class="shiftRight">></h1>
+		<h1 class="shiftLeft"><</h1>
+		<h1 class="shiftDown">v</h1>
+		<h1 class="shiftUp">^</h1>
+	</div>
+
+</body>
+</html>
